@@ -11,10 +11,8 @@
     <title>Versionshantering Slutprojekt</title>
   </head>
   <body>
-    <h2 id="loggedIn"></h2>
     <header>
       <section>
-        
         <div class="off-screen-menu">
           <ul>
             <li><a href="index.html"></a>Home</li>
@@ -30,13 +28,14 @@
             <span></span>
             <span></span>
             
-  
+            
           </div>
           <button class="sign-in-btn">Sign in</button>
+          <h3 id="loggedInUsername"></h3>
         </nav>
       </section>
     </header>
-
+    
     <form id="createAccount">
       <h3>Create Account</h3>
       <label for="createUsername">Username</label>
@@ -45,7 +44,7 @@
       <input id="createPassword" type="text" placeholder="password" required/>
       <button>Create Account</button>
     </form>
-
+    
     <form id="logIn">
       <h3>Log In</h3>
       <label for="logInUsername">Username</label>
@@ -54,5 +53,6 @@
       <input id="logInPassword" type="text" placeholder="Password" required/>
       <button>Log In</button>
     </form>
+    <button id="logOut">Log Out</button>
   </body>
 </html>
