@@ -1,0 +1,28 @@
+/* General CSS */
+:root {
+  --primary-color: blue;
+  --secondary-color: lightblue;
+  --text-color: black;
+}
+* {
+  margin: 0;
+}
+.darkmode {
+  --primary-color: black;
+  --secondary-color: coral;
+  --text-color: white;
+}
+
+/* main */
+main {
+  background-color: var(--primary-color);
+}
+main > div {
+  max-height: 10vh;
+}
+
+/* footer */
+footer {
+  height: 30px;
+  background-color: var(--secondary-color);
+}
