@@ -6,8 +6,7 @@ export function displayLoggedInUser() {
 
     if(document.cookie !== '') {
         const signInBtn = document.querySelector('.sign-in-btn')
-        signInBtn.classList.add('hide')
-        signInBtn.classList.remove('show')
+        signInBtn.classList.toggle('hide')
     }
 
 }
@@ -17,8 +16,7 @@ export function displayGuest() {
     const signInBtn = document.querySelector('.sign-in-btn')
     
     displayLoggedInUserEl.innerText = ''
-    signInBtn.classList.add('show')
-    signInBtn.classList.remove('hide')
+    signInBtn.classList.toggle('hide')
 }
 
 export function getAndDisplayExistingMessages(messagesObj) {

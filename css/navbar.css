@@ -130,10 +130,6 @@ transform: translate(-50%, 0%) rotate(50deg);
     }
 }
 
-.show {
-    display: block;
-}
-
 .hide {
     display: none;
 }

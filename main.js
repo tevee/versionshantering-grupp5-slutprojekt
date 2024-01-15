@@ -65,18 +65,13 @@ logInFormEl.addEventListener('submit', event => {
     event.preventDefault()
     const userNameInputValue = document.querySelector('#logInUsername').value
     const passwordInputValue = document.querySelector('#logInPassword').value
-    const signInBtn = document.querySelector('.sign-in-btn')
     
-
     getUserData('users', '')
     .then(users => {
         for(const user in users) {
             if(userNameInputValue === users[user].username && passwordInputValue === users[user].password) {
                 document.cookie = `username=${userNameInputValue};`
-                console.log(document.cookie);
                 console.log(userNameInputValue, 'logged in');
-                signInBtn.classList.add('hide')
-                signInBtn.classList.remove('show')
                 displayLoggedInUser();
             }
         }
