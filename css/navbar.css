@@ -103,7 +103,7 @@ transform: translate(-50%, 0%) rotate(50deg);
         visibility: hidden;
         
     }
-  .off-screen-menu{
+    .off-screen-menu{
       right: 230px;
       background-color: #34495e;
       height: 10vh;
@@ -114,25 +114,26 @@ transform: translate(-50%, 0%) rotate(50deg);
       width: 400px;
       top: 0;
       transition: opacity 0.5s ease-in-out;
-     
-  }
-  .hamburger-menu span{
-    transition: opacity 0.2s ease;
-  }
-  ul{
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-      width: 400px;
-      
-      
-  }
+    }
+    .hamburger-menu span{
+        transition: opacity 0.2s ease;
+    }
+    ul{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        width: 400px;
+    }
 
-  .sign-in-btn{
-     right: 100px;   
-     
- }
- 
+    .sign-in-btn{
+        right: 100px;   
+    }
+}
 
-  
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
 }
