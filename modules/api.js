@@ -1,5 +1,7 @@
-export async function getUserData(type) {
-    const url = `https://version-control-fe23-105e9-default-rtdb.europe-west1.firebasedatabase.app/${type}/.json`
+export async function getUserData(type, key) {
+    let url;
+    if(key !== '') url = `https://version-control-fe23-105e9-default-rtdb.europe-west1.firebasedatabase.app/${type}/${key}/.json`
+    else url = `https://version-control-fe23-105e9-default-rtdb.europe-west1.firebasedatabase.app/${type}/.json`
 
     const response = await fetch(url)
     const data = await response.json();

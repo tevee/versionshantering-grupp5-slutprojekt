@@ -1,13 +1,23 @@
 import { getUserData, postUserData, deleteUserData } from "./modules/api.js";
-import { displayLoggedInUser, displayGuest } from "./modules/display.js";
+import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displayMessage } from "./modules/display.js";
 
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const createAccountFormEl = document.querySelector('#createAccount')
 const logInFormEl = document.querySelector('#logIn')
 const logOutBtn = document.querySelector('#logOut')
+const publishMessageFormEl = document.querySelector('#publishMessageForm')
 
 displayLoggedInUser();
 console.log(document.cookie);
+
+// Se alla existerande användare
+getUserData('users', '')
+.then(users => console.log(users))
+.catch(error => console.log(error))
+
+getUserData('messages', '')
+.then(messages => getAndDisplayExistingMessages(messages))
+.catch(error => console.log(error))
 
 hamburgerMenu.addEventListener('click', (event)=>{
     event.preventDefault();
@@ -25,7 +35,7 @@ createAccountFormEl.addEventListener('submit', event => {
         password: ''
     }
 
-    getUserData('users')
+    getUserData('users', '')
     .then(users => {
         for(const user in users) {
             if(users[user].username === userNameInputValue) {
@@ -38,7 +48,7 @@ createAccountFormEl.addEventListener('submit', event => {
                 createUser.password = passwordInputValue
             }
         }
-        
+
         if(createUser.username !== '' && createUser.password !== '') {
             postUserData('users', createUser)
             .then(result => console.log(result))
@@ -58,7 +68,7 @@ logInFormEl.addEventListener('submit', event => {
     const signInBtn = document.querySelector('.sign-in-btn')
     
 
-    getUserData('users')
+    getUserData('users', '')
     .then(users => {
         for(const user in users) {
             if(userNameInputValue === users[user].username && passwordInputValue === users[user].password) {
@@ -72,6 +82,8 @@ logInFormEl.addEventListener('submit', event => {
         }
     })
     .catch(error => console.log(error))
+
+    logInFormEl.reset()
 })
 
 logOutBtn.addEventListener('click', event => {
@@ -80,4 +92,23 @@ logOutBtn.addEventListener('click', event => {
     // Remove cookie
     document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
 
+})
+
+publishMessageFormEl.addEventListener('submit', event => {
+    event.preventDefault()
+    const messageElValue = document.querySelector('#message').value
+    const cookieValue = document.cookie.split("username=").slice(1)[0]
+    const messageDate = new Date().toLocaleString();
+    const uniqueMessage = {
+        message: messageElValue,
+        username: cookieValue,
+        date: messageDate
+    }
+
+    postUserData('messages', uniqueMessage)
+    .then(key => getUserData('messages', key.name))
+    .then(displayMessage)
+    .catch(error => console.log(error))
+
+    publishMessageFormEl.reset()
 })
