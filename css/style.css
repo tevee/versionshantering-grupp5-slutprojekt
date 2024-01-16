@@ -1,8 +1,8 @@
 /* General CSS */
 :root {
-  --primary-color: blue;
-  --secondary-color: lightblue;
-  --text-color: black;
+  --headerAndFooter-color: #557a87ff;
+  --background-color: #6c9999ff;
+  --message-color: #aeccccff;
 }
 * {
   margin: 0;
@@ -18,24 +18,124 @@ button:hover {
 }
 /* main */
 main {
-  background-color: var(--primary-color);
+  background-color: var(--background-color);
 }
-main > div {
-  max-height: 10vh;
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.publishMessageContainer {
+  margin: 0 4rem;
+}
+
+.popUpFormBtn {
+  width: 100%;
+  line-height: 3;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: #aeccccff;
+}
+
+#publishMessageForm {
+  display: none;
+  flex-direction: column;
+  border: 1px solid black;
+  background-color: #aeccccff;
+  position: relative;
+  top: -42px;
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+}
+
+.messageHeader > label {
+  display: flex;
+  align-items: center;
+}
+
+.closePopUp {
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.closePopUp:hover {
+  color: black;
+}
+
+#messageBoard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 4rem 0;
+}
+
+.message-box {
+  width: 100%;
+  background-color: var(--message-color);
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.message-box > h4 {
+  margin-bottom: 2px;
 }
 
 /* footer */
 footer {
   height: 80px;
   width: 100%;
-  background-color: var(--secondary-color);
-  position: absolute;
-  bottom: 0;
+  background-color: var(--headerAndFooter-color);
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 .icon {
-  color: black;
+  color: #fff;
   font-size: 2.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .publishMessageContainer {
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  #messageBoard {
+    margin: 2rem 0 0;
+  }
+
+  .message-box {
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .contentContainer {
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+  }
+
+  .publishMessageContainer {
+    width: 250px;
+    order: 2;
+    margin: 0 2rem 0 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  #messageBoard {
+    margin-top: 0;
+    
+  }
 }
