@@ -1,3 +1,5 @@
+import { createAndAppendElement } from "./createElement.js"
+
 export function displayLoggedInUser() {
 
     const cookieValue = document.cookie.split("username=").slice(1)
@@ -24,21 +26,32 @@ export function getAndDisplayExistingMessages(messagesObj) {
 
     for(const message in messagesObj) {
         const uniqueMessage = messagesObj[message]
+       const div = createAndAppendElement('div', "", messageBoardEl)
+        createAndAppendElement('h2', uniqueMessage.username, div)
+        createAndAppendElement('p', uniqueMessage.message, div)
 
-        const div = document.createElement('div')
+        /* Struktur innan createAndAppend lades till */
+        /* const div = document.createElement('div')
         const h2 = document.createElement('h2')
         const p = document.createElement('p')
         h2.innerText = uniqueMessage.username
         p.innerText = uniqueMessage.message
         messageBoardEl.append(div)
-        div.append(h2,p)
+        div.append(h2,p) */
     }
 }
 
 // Temporär tills createAndAppend skapas
 export function displayMessage(uniqueMessage) {
     const messageBoardEl = document.querySelector('#messageBoard')
-    const div = document.createElement('div')
+
+   const div = createAndAppendElement('div', "", messageBoardEl)
+   createAndAppendElement('h2', uniqueMessage.username, div)
+   createAndAppendElement('p', uniqueMessage.date, div)
+   createAndAppendElement('p', uniqueMessage.message, div)
+   
+   /* Struktur innan createAndAppend lades till */
+    /* const div = document.createElement('div')
     const h2 = document.createElement('h2')
     const p = document.createElement('p')
     const secondP = document.createElement('p')
@@ -46,5 +59,5 @@ export function displayMessage(uniqueMessage) {
     p.innerText = uniqueMessage.date
     secondP.innerText = uniqueMessage.message
     messageBoardEl.append(div)
-    div.append(h2,p,secondP)
+    div.append(h2,p,secondP) */
 }
