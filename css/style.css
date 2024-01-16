@@ -1,1 +1,41 @@
+/* General CSS */
+:root {
+  --primary-color: blue;
+  --secondary-color: lightblue;
+  --text-color: black;
+}
+* {
+  margin: 0;
+}
 
+.darkmode {
+  --primary-color: black;
+  --secondary-color: coral;
+  --text-color: white;
+}
+button:hover {
+  cursor: pointer;
+}
+/* main */
+main {
+  background-color: var(--primary-color);
+}
+main > div {
+  max-height: 10vh;
+}
+
+/* footer */
+footer {
+  height: 80px;
+  width: 100%;
+  background-color: var(--secondary-color);
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.icon {
+  color: black;
+  font-size: 2.5rem;
+}
