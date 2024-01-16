@@ -27,38 +27,18 @@ export function getAndDisplayExistingMessages(messagesObj) {
     for(const message in messagesObj) {
         const uniqueMessage = messagesObj[message]
        const div = createAndAppendElement('div', "", messageBoardEl)
-        createAndAppendElement('h2', uniqueMessage.username, div)
+       div.classList.add('message-box')
+        createAndAppendElement('h3', uniqueMessage.username, div)
         createAndAppendElement('p', uniqueMessage.message, div)
-        createAndAppendElement('p', uniqueMessage.date, div) //lade till denna
-
-        /* Struktur innan createAndAppend lades till */
-        /* const div = document.createElement('div')
-        const h2 = document.createElement('h2')
-        const p = document.createElement('p')
-        h2.innerText = uniqueMessage.username
-        p.innerText = uniqueMessage.message
-        messageBoardEl.append(div)
-        div.append(h2,p) */
     }
 }
 
-// Temporär tills createAndAppend skapas
 export function displayMessage(uniqueMessage) {
     const messageBoardEl = document.querySelector('#messageBoard')
 
    const div = createAndAppendElement('div', "", messageBoardEl)
-   createAndAppendElement('h2', uniqueMessage.username, div)
+   div.classList.add('message-box')
+   createAndAppendElement('h3', uniqueMessage.username, div)
    createAndAppendElement('p', uniqueMessage.date, div)
    createAndAppendElement('p', uniqueMessage.message, div)
-
-   /* Struktur innan createAndAppend lades till */
-    /* const div = document.createElement('div')
-    const h2 = document.createElement('h2')
-    const p = document.createElement('p')
-    const secondP = document.createElement('p')
-    h2.innerText = uniqueMessage.username
-    p.innerText = uniqueMessage.date
-    secondP.innerText = uniqueMessage.message
-    messageBoardEl.append(div)
-    div.append(h2,p,secondP) */
 }

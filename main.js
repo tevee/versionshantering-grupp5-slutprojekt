@@ -6,6 +6,8 @@ const createAccountFormEl = document.querySelector('#createAccount')
 const logInFormEl = document.querySelector('#logIn')
 const logOutBtn = document.querySelector('#logOut')
 const publishMessageFormEl = document.querySelector('#publishMessageForm')
+const popUpModalBtns =  [... document.querySelectorAll('.popUpFormBtn')]
+const closePopUpModalBtns = [... document.querySelectorAll('.closePopUp')]
 const signInBtn = document.querySelector('.sign-in-btn');
 
 displayLoggedInUser();
@@ -20,6 +22,22 @@ getUserData('users', '')
 getUserData('messages', '')
 .then(messages => getAndDisplayExistingMessages(messages))
 .catch(error => console.log(error))
+
+popUpModalBtns.forEach(button => {
+    button.addEventListener('click', event => {
+        event.preventDefault()
+        let modal = button.getAttribute('data-modal');
+        document.getElementById(modal).style.display = 'flex';
+    })
+})
+
+closePopUpModalBtns.forEach(button => {
+    button.addEventListener('click', event => {
+        event.preventDefault()
+        let modal = button.closest('.popUpForm')
+        modal.style.display = 'none';
+    })
+})
 
 hamburgerMenu.addEventListener('click', (event)=>{
     event.preventDefault();
