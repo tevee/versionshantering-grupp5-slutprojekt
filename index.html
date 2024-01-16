@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="shortcut icon" href="#" type="image/x-icon" />
-		<link rel="stylesheet" href="./css/style.css" />
-		<link rel="stylesheet" href="./css/navbar.css" />
-		<script type="module" src="./main.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/popUpSignIn.css">
+    <script type="module" src="./main.js"></script>
 
 		<script
 			src="https://kit.fontawesome.com/cff0f9fab2.js"
@@ -37,24 +38,39 @@
 			</section>
 		</header>
 
-		<form id="createAccount">
-			<h3>Create Account</h3>
-			<label for="createUsername">Username</label>
-			<input id="createUsername" type="text" placeholder="username" required />
-			<label for="createPassword">Password</label>
-			<input id="createPassword" type="text" placeholder="password" required />
-			<button>Create Account</button>
-		</form>
+    <form id="logIn" class="pop-up-sign-in-hide">
+      <div class="button-box">
+        <div id="toggle-button"></div>
+        <button id= "log-in-choice" type="button" class="toggle-btn">Log in</button>
+        <button id="register-choice" type="button" class="toggle-btn">Register</button>
+       
+      </div>
+     
+      <label for="logInUsername"></label>
+      <input id="logInUsername" class = "form-input" type="text" placeholder="Username" required />
+      <label for="logInPassword"></label>
+      <input id="logInPassword" class = "form-input" type="text" placeholder="Password" required />
+      <button class="form-button">Log In</button>
+      <button id="logOut">Log Out</button>
+    </form>
 
-		<form id="logIn">
-			<h3>Log In</h3>
-			<label for="logInUsername">Username</label>
-			<input id="logInUsername" type="text" placeholder="Username" required />
-			<label for="logInPassword"></label>
-			<input id="logInPassword" type="text" placeholder="Password" required />
-			<button>Log In</button>
-		</form>
-		<button id="logOut">Log Out</button>
+    <form id="createAccount" class="pop-up-sign-in-hide">
+      <div class="button-box">
+        <div id="toggle-button"></div>
+        <button id= "log-in-choice" type="button" class="toggle-btn">Log in</button>
+        <button id="register-choice" type="button" class="toggle-btn">Register</button>
+       
+      </div>
+      
+      <label for="createUsername"></label>
+      <input id="createUsername" class = "form-input" type="text" placeholder="username" required />
+      <label for="createPassword"></label>
+      <input id="createPassword" class = "form-input" type="text" placeholder="password" required />
+      <button class="form-button">Create Account</button>
+    </form>
+
+    
+    
 
 		<form id="publishMessageForm">
 			<label for="message">Message</label>
@@ -68,6 +84,14 @@
 			<button>Send</button>
 		</form>
 
+    <div id="messageBoard"></div>
+    <footer>
+      <a href="#"><i class="fa-brands fa-youtube icon"></i></a>
+      <a href="#"><i class="fa-brands fa-github icon"></i></a>
+      <a href="#"><i class="fa-brands fa-facebook icon"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram icon"></i></a>
+    </footer> 
+  </body>
 		<div id="messageBoard"></div>
 		<!--CONTACT -->
 

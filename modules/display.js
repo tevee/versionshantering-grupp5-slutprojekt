@@ -29,6 +29,7 @@ export function getAndDisplayExistingMessages(messagesObj) {
        const div = createAndAppendElement('div', "", messageBoardEl)
         createAndAppendElement('h2', uniqueMessage.username, div)
         createAndAppendElement('p', uniqueMessage.message, div)
+        createAndAppendElement('p', uniqueMessage.date, div) //lade till denna
 
         /* Struktur innan createAndAppend lades till */
         /* const div = document.createElement('div')
@@ -49,7 +50,7 @@ export function displayMessage(uniqueMessage) {
    createAndAppendElement('h2', uniqueMessage.username, div)
    createAndAppendElement('p', uniqueMessage.date, div)
    createAndAppendElement('p', uniqueMessage.message, div)
-   
+
    /* Struktur innan createAndAppend lades till */
     /* const div = document.createElement('div')
     const h2 = document.createElement('h2')
