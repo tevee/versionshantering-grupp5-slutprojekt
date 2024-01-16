@@ -6,9 +6,11 @@ const createAccountFormEl = document.querySelector('#createAccount')
 const logInFormEl = document.querySelector('#logIn')
 const logOutBtn = document.querySelector('#logOut')
 const publishMessageFormEl = document.querySelector('#publishMessageForm')
+const signInBtn = document.querySelector('.sign-in-btn');
 
 displayLoggedInUser();
 console.log(document.cookie);
+
 
 // Se alla existerande användare
 getUserData('users', '')
@@ -25,6 +27,30 @@ hamburgerMenu.addEventListener('click', (event)=>{
     hamburgerMenu.classList.toggle('active');
     offScreenMenu.classList.toggle('active');
 })
+
+signInBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const createAccountForm = document.querySelector('#createAccount');
+    const logInForm = document.querySelector('#logIn');
+    
+
+    logInForm.classList.add('popUpSignInVisable');
+
+    const logInChoice = document.querySelector('#log-in-choice');
+    const registerChoice = document.querySelector('#register-choice');
+    logInChoice.addEventListener('click', function () {
+        logInForm.classList.add('popUpSignInVisable');
+        createAccountForm.classList.remove('popUpSignInVisable');
+       
+    });
+
+    registerChoice.addEventListener('click', function () {
+        createAccountForm.classList.add('popUpSignInVisable');
+        logInForm.classList.remove('popUpSignInVisable');
+    });
+
+});
 
 createAccountFormEl.addEventListener('submit', event => {
     event.preventDefault()
