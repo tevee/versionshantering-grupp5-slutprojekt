@@ -9,34 +9,34 @@
     <link rel="stylesheet" href="./css/popUpSignIn.css">
     <script type="module" src="./main.js"></script>
 
-    <script
-      src="https://kit.fontawesome.com/cff0f9fab2.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Versionshantering Slutprojekt</title>
-  </head>
-  <body>
-    <header>
-      <section>
-        <div class="off-screen-menu">
-          <ul>
-            <li><a href="index.html"></a>Home</li>
-            <li><a href="#"></a>About</li>
-            <li><a href="#"></a>Contact</li>
-          </ul>
-        </div>
+		<script
+			src="https://kit.fontawesome.com/cff0f9fab2.js"
+			crossorigin="anonymous"
+		></script>
+		<title>Versionshantering Slutprojekt</title>
+	</head>
+	<body>
+		<header>
+			<section>
+				<div class="off-screen-menu">
+					<ul>
+						<li><a href="index.html"></a>Home</li>
+						<li><a href="#"></a>About</li>
+						<li><a href="#"></a>Contact</li>
+					</ul>
+				</div>
 
-        <nav>
-          <div class="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <button class="sign-in-btn">Sign in</button>
-          <h3 id="loggedInUsername"></h3>
-        </nav>
-      </section>
-    </header>
+				<nav>
+					<div class="hamburger-menu">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<button class="sign-in-btn">Sign in</button>
+					<h3 id="loggedInUsername"></h3>
+				</nav>
+			</section>
+		</header>
 
     <form id="logIn" class="pop-up-sign-in-hide">
       <div class="button-box">
@@ -72,17 +72,17 @@
     
     
 
-    <form id="publishMessageForm">
-      <label for="message">Message</label>
-      <textarea
-        id="message"
-        rows="10"
-        cols="33"
-        placeholder="Write something funny"
-        required
-      ></textarea>
-      <button>Send</button>
-    </form>
+		<form id="publishMessageForm">
+			<label for="message">Message</label>
+			<textarea
+				id="message"
+				rows="10"
+				cols="33"
+				placeholder="Write something funny"
+				required
+			></textarea>
+			<button>Send</button>
+		</form>
 
     <div id="messageBoard"></div>
     <footer>
@@ -92,4 +92,39 @@
       <a href="#"><i class="fa-brands fa-instagram icon"></i></a>
     </footer> 
   </body>
+		<div id="messageBoard"></div>
+		<!--CONTACT -->
+
+		<section>
+			<h2>Contact us</h2>
+			<form>
+				<div>
+					<label for="name">Your name</label>
+
+					<input type="text" name="name" id="name" />
+				</div>
+				<div>
+					<label for="mail">Email</label>
+
+					<input type="text" name="mail" id="mail" />
+				</div>
+
+				<div>
+					<label for="message">Message</label>
+					<textarea name="message" id="message" cols="30" rows="6"></textarea>
+				</div>
+				<div>
+					<input type="submit" value="Send" />
+				</div>
+			</form>
+		</section>
+		<!-- Contact END -->
+
+		<footer>
+			<a href="#"><i class="fa-brands fa-youtube icon"></i></a>
+			<a href="#"><i class="fa-brands fa-github icon"></i></a>
+			<a href="#"><i class="fa-brands fa-facebook icon"></i></a>
+			<a href="#"><i class="fa-brands fa-instagram icon"></i></a>
+		</footer>
+	</body>
 </html>
