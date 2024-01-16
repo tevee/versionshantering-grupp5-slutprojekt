@@ -41,13 +41,14 @@ input, textarea {
     
 }
 
-.sign-in-btn{
-   position: absolute;
-   width: 70px;
+.sign-in-btn  {
+    position: absolute;
+    width: 70px;
     right: 85px;
     margin-top: 6px;
     font-size: 14px;
 }
+
 
 .off-screen-menu.active{
     right: 0;

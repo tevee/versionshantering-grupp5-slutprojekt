@@ -5,6 +5,7 @@ export function displayLoggedInUser() {
     const cookieValue = document.cookie.split("username=").slice(1)
     const displayLoggedInUserEl = document.querySelector('#loggedInUsername')
     displayLoggedInUserEl.innerText = cookieValue
+    
 
     if(document.cookie !== '') {
         const signInBtn = document.querySelector('.sign-in-btn')
