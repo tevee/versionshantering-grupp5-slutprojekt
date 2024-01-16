@@ -2,7 +2,7 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: roberto;
+    font-family: "roberto";
 }
 
 li{
@@ -23,7 +23,7 @@ li{
     height: 60vh;
     width: 50%;
     max-width: 450px;
-    position: fixed;
+     position: fixed; 
     top: 0;
     right: -450px;
     display: flex;
@@ -114,6 +114,7 @@ transform: translate(-50%, 0%) rotate(50deg);
       width: 400px;
       top: 0;
       transition: opacity 0.5s ease-in-out;
+      position:absolute;
     }
     .hamburger-menu span{
         transition: opacity 0.2s ease;
