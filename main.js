@@ -137,7 +137,7 @@ publishMessageFormEl.addEventListener('submit', event => {
     event.preventDefault()
     const messageElValue = document.querySelector('#message').value
     const cookieValue = document.cookie.split("username=").slice(1)[0]
-    const messageDate = new Date().toLocaleString();
+    const messageDate = new Date()
     const uniqueMessage = {
         message: messageElValue,
         username: cookieValue,

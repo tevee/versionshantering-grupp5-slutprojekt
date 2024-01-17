@@ -1,4 +1,5 @@
 import { createAndAppendElement } from "./createElement.js"
+import { timePostedDifference } from "./date.js"
 
 export function displayLoggedInUser() {
     const cookieValue = document.cookie.split("username=").slice(1)
@@ -34,11 +35,15 @@ export function getAndDisplayExistingMessages(messagesObj) {
         const div = createAndAppendElement('div', "", messageBoardEl)
         div.classList.add('message-box')
         div.id = key
-        
+
         const messageHeader = createAndAppendElement('div', '', div)
         messageHeader.classList.add('contentMessageHeader')
 
-        createAndAppendElement('h3', uniqueMessage.username, messageHeader)
+        const messageHeaderLeft = createAndAppendElement('div', '', messageHeader)
+        messageHeaderLeft.classList.add('contentMessageHeader-left')
+
+        createAndAppendElement('h3', uniqueMessage.username, messageHeaderLeft)
+        createAndAppendElement('p', timePostedDifference(uniqueMessage.date), messageHeaderLeft)
 
         if(uniqueMessage.username === cookieValue) {
             const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
@@ -47,7 +52,6 @@ export function getAndDisplayExistingMessages(messagesObj) {
 
         const messageContent = createAndAppendElement('div', '', div)
         messageContent.classList.add('inner-msg-container')
-        createAndAppendElement('p', uniqueMessage.date, messageContent)
         createAndAppendElement('p', uniqueMessage.message, messageContent)
     }
 }
@@ -63,7 +67,11 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     const messageHeader = createAndAppendElement('div', '', div)
     messageHeader.classList.add('contentMessageHeader')
 
-    createAndAppendElement('h3', uniqueMessage.username, messageHeader)
+    const messageHeaderLeft = createAndAppendElement('div', '', messageHeader)
+    messageHeaderLeft.classList.add('contentMessageHeader-left')
+
+    createAndAppendElement('h3', uniqueMessage.username, messageHeaderLeft)
+    createAndAppendElement('p', timePostedDifference(uniqueMessage.date), messageHeaderLeft)
 
     if(uniqueMessage.username === cookieValue) {
         const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
@@ -72,7 +80,6 @@ export function displayMessage(uniqueMessage, uniqueKey) {
 
     const messageContent = createAndAppendElement('div', '', div)
     messageContent.classList.add('inner-msg-container')
-    createAndAppendElement('p', uniqueMessage.date, messageContent)
     createAndAppendElement('p', uniqueMessage.message, messageContent)
 }
 
