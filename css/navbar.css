@@ -9,12 +9,11 @@ li{
     list-style: none;
     text-decoration: none;
     font-size: 2rem;
-    color: white;
     margin-bottom: 20px;
 }
 
 li:hover{
-    color: #E0E0E0;
+    color: #36454F;
     cursor: pointer;
 }
 
@@ -24,7 +23,7 @@ input, textarea {
 }
 
 .off-screen-menu{
-    background-color: #34495e;
+    background-color: #557a87ff;
     height: 60vh;
     width: 50%;
     max-width: 450px;
@@ -57,7 +56,7 @@ input, textarea {
 nav{
     padding: 1rem;
     display: flex;
-    background-color: #34495e;
+    background-color: #557a87ff;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0.1);
 }
 
@@ -72,7 +71,7 @@ nav{
 .hamburger-menu span{
     height: 5px;
     width: 100%;
-    background-color: #1abc9c;
+    background-color: black;
     border-radius: 25px;
     position: absolute;
     top: 50%;
@@ -109,7 +108,7 @@ transform: translate(-50%, 0%) rotate(50deg);
         
     }
     .off-screen-menu{
-      right: 230px;
+      right: 190px;
       background-color: #34495e;
       height: 0;
       align-items: center;
@@ -126,7 +125,7 @@ transform: translate(-50%, 0%) rotate(50deg);
     }
     ul{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         margin-top: 10px;
         width: 400px;
     }
