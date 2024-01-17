@@ -89,9 +89,20 @@ main {
   margin-bottom: 2px;
 }
 
-.contentMessageHeader > h3 {
-  align-self: center;
+.contentMessageHeader-left {
+  display: flex;
+  align-items: center;
+}
+
+.contentMessageHeader-left > h3 {
   padding-bottom: 2px;
+  margin-right: 4px;
+}
+
+.contentMessageHeader-left > p {
+  font-size: 0.8rem;
+  line-height: 1.8rem;
+  font-family: "Roboto","Arial",sans-serif;
 }
 
 .inner-msg-container {
