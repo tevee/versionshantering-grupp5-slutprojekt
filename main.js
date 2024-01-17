@@ -26,17 +26,26 @@ getUserData('messages', '')
 
 popUpModalBtns.forEach(button => {
     button.addEventListener('click', event => {
-        event.preventDefault()
+        event.preventDefault();
         let modal = button.getAttribute('data-modal');
-       /*  document.getElementById(modal).style.display = 'flex';  */
-    })
-})
+        
+        if (modal === 'logIn') {
+            const logInForm = document.querySelector('#createAccount');
+            logInForm.style.display = 'none';
+        } else if (modal === 'createAccount') {
+            const createAccountForm = document.querySelector('#logIn');
+            createAccountForm.style.display = 'none';
+        }
+        
+        document.getElementById(modal).style.display = 'flex';
+    });
+});
+
 
 closePopUpModalBtns.forEach(button => {
     button.addEventListener('click', event => {
         event.preventDefault()
         let modal = button.closest('.popUpForm')
-        
         modal.style.display = 'none';
         
         
@@ -50,39 +59,6 @@ hamburgerMenu.addEventListener('click', (event)=>{
     hamburgerMenu.classList.toggle('active');
     offScreenMenu.classList.toggle('active');
 })
-
-signInBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    const createAccountForm = document.querySelector('#createAccount');
-    const logInForm = document.querySelector('#logIn');
-    
-    logInForm.classList.add('popUpSignInVisable');
-    createAccountForm.classList.remove('popUpSignInVisable');
-    logOutBtn.style.display='none';
-    
-}); 
-
-function handleFormToggle(logInForm, createAccountForm) {
-    return (event) => {
-        event.preventDefault();
-        logInForm.classList.add('popUpSignInVisable');
-        createAccountForm.classList.remove('popUpSignInVisable');
-    };
-}
-
-const logInForm = document.querySelector('#logIn');
-const createAccountForm = document.querySelector('#createAccount');
-
-const logInChoiceButtons = document.querySelectorAll('.toggle-btn[data-action="logIn"]');
-const registerChoiceButtons = document.querySelectorAll('.toggle-btn[data-action="register"]');
-
-logInChoiceButtons.forEach((button) => {
-    button.addEventListener('click', handleFormToggle(logInForm, createAccountForm));
-});
-
-registerChoiceButtons.forEach((button) => {
-    button.addEventListener('click', handleFormToggle(createAccountForm, logInForm));
-});
 
 
 createAccountFormEl.addEventListener('submit', event => {
@@ -154,8 +130,9 @@ logOutBtn.addEventListener('click', event => {
     displayGuest()
     // Remove cookie
     document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-
+      
 })
+
 
 publishMessageFormEl.addEventListener('submit', event => {
     event.preventDefault()

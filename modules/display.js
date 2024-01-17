@@ -12,6 +12,8 @@ export function displayLoggedInUser() {
     if(document.cookie !== '') {
         const signInBtn = document.querySelector('.sign-in-btn')
         signInBtn.classList.toggle('hide')
+        const logOutButton = document.querySelector('#logOut');
+        logOutButton.classList.toggle('hide');
     }
 }
 
@@ -24,6 +26,8 @@ export function displayGuest() {
     if(document.cookie !== '') {
         displayLoggedInUserEl.innerText = ''
         signInBtn.classList.toggle('hide')
+        const logOutButton = document.querySelector('#logOut');
+        logOutButton.classList.toggle('hide');
     }
 }
 
