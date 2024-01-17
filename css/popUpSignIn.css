@@ -51,7 +51,7 @@
     width: 220px;
     position: absolute;
     top:60px;
-    left: 110px;
+    left: 50px;
     box-shadow: 0 0 20px 9px #6c9999ff;
     border-radius: 30px;
     display:flex;
@@ -70,8 +70,20 @@
     font-size: 14px;
     
 }
+
+.log-out-btn{
+    position: absolute;
+    width: 70px;
+    right: 85px;
+    margin-top: 6px;
+    font-size: 14px;
+  line-height: 3;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: #aeccccff;
+}
 .toggle-btn{
-    padding: 10px 20px;
+    line-height: 0;
     cursor: pointer;
     background: transparent;
     border:0;
@@ -87,7 +99,6 @@
     margin-right: 30px;
     
 }
-
 
 #toggle-button{
 position: absolute;
@@ -111,8 +122,7 @@ transition: .5s;
 
 @media (min-width: 750px){
     .button-box{
-        
-        position: absolute;
+       
         top: 70px;
         left: 560px;
         
@@ -140,6 +150,8 @@ transition: .5s;
         
         
     }
+
+   
 
     
 }

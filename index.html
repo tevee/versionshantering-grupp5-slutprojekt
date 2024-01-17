@@ -32,7 +32,7 @@
             <span></span>
           </div>
           <button class="sign-in-btn popUpFormBtn" data-modal="logIn">Sign in</button>
-          <button id="logOut" class="hide">Log Out</button>
+          <button id="logOut" class="hide log-out-btn">Log Out</button>
           <h3 id="loggedInUsername"></h3>
         </nav>
       </section>
@@ -42,7 +42,7 @@
       
       <form id="logIn" class=" popUpSignInVisable popUpForm log">
         
-
+        
         <div class="button-box">
           <div id="toggle-button"></div>
           <button type="button" class="toggle-btn popUpFormBtn" data-modal="logIn" >Log in</button>
@@ -50,11 +50,9 @@
           <a class="close-sign-in closePopUp">&times;</a>
         </div>
        
-        <label for="logInUsername"></label>
         <input id="logInUsername" class = "form-input" type="text" placeholder="Username" required />
-        <label for="logInPassword"></label>
         <input id="logInPassword" class = "form-input" type="text" placeholder="Password" required />
-        <button class="form-button">Log In</button>
+        <button class="form-button"  >Log In</button>
         
       </form>
   
@@ -66,9 +64,8 @@
           <a class="close-sign-in closePopUp">&times;</a>
         </div>
         
-        <label for="createUsername"></label>
         <input id="createUsername" class = "form-input" type="text" placeholder="Username" required />
-        <label for="createPassword"></label>
+       
 
         <input id="createPassword" class = "form-input" type="text" placeholder="Password" required />
         <button class="form-button">Register</button>
@@ -86,7 +83,7 @@
               <a class="closePopUp">&times;</a>
             </div>
             <textarea id="message" rows="10" cols="33" placeholder="Write something funny" required></textarea>
-            <button >Send</button>
+            <button class="form-button-send">Send</button>
             <h3></h3>
           </form>
         </div>

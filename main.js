@@ -32,7 +32,10 @@ popUpModalBtns.forEach(button => {
         if (modal === 'logIn') {
             const logInForm = document.querySelector('#createAccount');
             logInForm.style.display = 'none';
-        } else if (modal === 'createAccount') {
+           
+        } 
+        
+        else if (modal === 'createAccount') {
             const createAccountForm = document.querySelector('#logIn');
             createAccountForm.style.display = 'none';
         }
