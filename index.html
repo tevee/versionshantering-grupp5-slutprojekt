@@ -17,7 +17,13 @@
   </head>
   <body >
     <header>
-      <section>
+      <div class="user">
+        <button class="sign-in-btn popUpFormBtn btn-styling" data-modal="logIn">Sign in</button>
+        <h3 id="loggedInUsername"></h3>
+        <button id="logOut" class="hide btn-styling">Log Out</button>
+      </div>
+
+      <div class="nav">
         <div class="off-screen-menu">
           <ul>
             <li><a href="index.html"></a>Home</li>
@@ -31,11 +37,8 @@
             <span></span>
             <span></span>
           </div>
-          <button class="sign-in-btn popUpFormBtn" data-modal="logIn">Sign in</button>
-          <h3 id="loggedInUsername"></h3>
-          <button id="logOut" class="hide">Log Out</button>
         </nav>
-      </section>
+      </div>
     </header>
 
     <main>
@@ -43,8 +46,8 @@
         <form id="logInForm" class="popUpSignInVisable log">
           <div class="button-box">
             <div class="toggle-button left"></div>
-            <button type="button" class="toggle-btn popUpFormBtn" data-modal="logIn">Log in</button>
-            <button  type="button" class="toggle-btn popUpFormBtn" data-modal="createAccount">Register</button>
+            <button type="button" class="toggle-btn popUpFormBtn btn-styling" data-modal="logIn">Log in</button>
+            <button  type="button" class="toggle-btn popUpFormBtn btn-styling" data-modal="createAccount">Register</button>
             <a class="close-sign-in closePopUp">&times;</a>
           </div>
 
@@ -58,8 +61,8 @@
         <form id="createAccountForm" class="popUpSignInVisable">
           <div class="button-box">
             <div class="toggle-button right"></div>
-            <button type="button" class="toggle-btn popUpFormBtn" data-modal="logIn">Log in</button>
-            <button type="button" class="toggle-btn popUpFormBtn" data-modal="createAccount">Register</button>
+            <button type="button" class="toggle-btn popUpFormBtn btn-styling" data-modal="logIn">Log in</button>
+            <button type="button" class="toggle-btn popUpFormBtn btn-styling" data-modal="createAccount">Register</button>
             <a class="close-sign-in closePopUp">&times;</a>
           </div>
 
@@ -71,7 +74,7 @@
       
       <div class="contentContainer">
         <div class="publishMessageContainer">
-          <button id="publishMessagePopUp" class="popUpFormBtn" data-modal="publishMessageForm">Send a comment</button>
+          <button id="publishMessagePopUp" class="popUpFormBtn btn-styling" data-modal="publishMessageForm">Send a comment</button>
           <form id="publishMessageForm" class="popUpForm">
             <div class="messageHeader">
               <label for="message">Message</label>

@@ -102,7 +102,6 @@ logInFormEl.addEventListener('submit', event => {
     event.preventDefault()
     const userNameInputValue = document.querySelector('#logInUsername').value
     const passwordInputValue = document.querySelector('#logInPassword').value
-    console.log('it works');
     
     getUserData('users', '')
     .then(users => {
