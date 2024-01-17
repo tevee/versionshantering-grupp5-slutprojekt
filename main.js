@@ -11,6 +11,7 @@ const closePopUpModalBtns = [... document.querySelectorAll('.closePopUp')]
 const signInBtn = document.querySelector('.sign-in-btn');
 const messageBoardEl = document.querySelector('#messageBoard')
 
+
 displayLoggedInUser();
 console.log(document.cookie);
 
@@ -27,7 +28,7 @@ popUpModalBtns.forEach(button => {
     button.addEventListener('click', event => {
         event.preventDefault()
         let modal = button.getAttribute('data-modal');
-        document.getElementById(modal).style.display = 'flex';
+       /*  document.getElementById(modal).style.display = 'flex';  */
     })
 })
 
@@ -35,9 +36,13 @@ closePopUpModalBtns.forEach(button => {
     button.addEventListener('click', event => {
         event.preventDefault()
         let modal = button.closest('.popUpForm')
+        
         modal.style.display = 'none';
+        
+        
     })
 })
+
 
 hamburgerMenu.addEventListener('click', (event)=>{
     event.preventDefault();
@@ -48,32 +53,43 @@ hamburgerMenu.addEventListener('click', (event)=>{
 
 signInBtn.addEventListener('click', (event) => {
     event.preventDefault();
-
     const createAccountForm = document.querySelector('#createAccount');
     const logInForm = document.querySelector('#logIn');
     
-
     logInForm.classList.add('popUpSignInVisable');
+    createAccountForm.classList.remove('popUpSignInVisable');
+    logOutBtn.style.display='none';
+    
+}); 
 
-    const logInChoice = document.querySelector('#log-in-choice');
-    const registerChoice = document.querySelector('#register-choice');
-    logInChoice.addEventListener('click', function () {
+function handleFormToggle(logInForm, createAccountForm) {
+    return (event) => {
+        event.preventDefault();
         logInForm.classList.add('popUpSignInVisable');
         createAccountForm.classList.remove('popUpSignInVisable');
-       
-    });
+    };
+}
 
-    registerChoice.addEventListener('click', function () {
-        createAccountForm.classList.add('popUpSignInVisable');
-        logInForm.classList.remove('popUpSignInVisable');
-    });
+const logInForm = document.querySelector('#logIn');
+const createAccountForm = document.querySelector('#createAccount');
 
+const logInChoiceButtons = document.querySelectorAll('.toggle-btn[data-action="logIn"]');
+const registerChoiceButtons = document.querySelectorAll('.toggle-btn[data-action="register"]');
+
+logInChoiceButtons.forEach((button) => {
+    button.addEventListener('click', handleFormToggle(logInForm, createAccountForm));
 });
+
+registerChoiceButtons.forEach((button) => {
+    button.addEventListener('click', handleFormToggle(createAccountForm, logInForm));
+});
+
 
 createAccountFormEl.addEventListener('submit', event => {
     event.preventDefault()
     const userNameInputValue = document.querySelector('#createUsername').value
     const passwordInputValue = document.querySelector('#createPassword').value
+    
     const createUser = {
         username: '',
         password: ''
@@ -95,6 +111,7 @@ createAccountFormEl.addEventListener('submit', event => {
 
         if(createUser.username !== '' && createUser.password !== '') {
             postUserData('users', createUser)
+    
             .then(result => console.log(result))
             .catch(error => console.log(error))
             console.log('Account created!');
@@ -110,6 +127,8 @@ logInFormEl.addEventListener('submit', event => {
     const userNameInputValue = document.querySelector('#logInUsername').value
     const passwordInputValue = document.querySelector('#logInPassword').value
     
+    
+    
     getUserData('users', '')
     .then(users => {
         for(const user in users) {
@@ -117,13 +136,17 @@ logInFormEl.addEventListener('submit', event => {
                 document.cookie = `username=${userNameInputValue};`
                 console.log(userNameInputValue, 'logged in');
                 displayLoggedInUser();
+
                 break;
+
             }
+            
         }
     })
     .catch(error => console.log(error))
 
     logInFormEl.reset()
+   
 })
 
 logOutBtn.addEventListener('click', event => {
@@ -131,6 +154,7 @@ logOutBtn.addEventListener('click', event => {
     displayGuest()
     // Remove cookie
     document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+
 })
 
 publishMessageFormEl.addEventListener('submit', event => {

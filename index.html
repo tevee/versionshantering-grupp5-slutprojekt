@@ -15,7 +15,7 @@
     ></script>
     <title>Versionshantering Slutprojekt</title>
   </head>
-  <body>
+  <body >
     <header>
       <section>
         <div class="off-screen-menu">
@@ -32,17 +32,22 @@
             <span></span>
           </div>
           <button class="sign-in-btn popUpFormBtn" data-modal="logIn">Sign in</button>
+          <button id="logOut" class = " sign-in-btn popUpFormBtn" >Log Out</button>
           <h3 id="loggedInUsername"></h3>
         </nav>
       </section>
     </header>
 
     <main>
-      <!-- <form id="logIn" class="pop-up-sign-in-hide popUpForm">
+
+      <form id="logIn" class="pop-up-sign-in-hide popUpForm log">
+        
+
         <div class="button-box">
           <div id="toggle-button"></div>
-          <button id= "log-in-choice" type="button" class="toggle-btn">Log in</button>
-          <button id="register-choice" type="button" class="toggle-btn">Register</button>
+          <button id= "log-in-choice-first" type="button" class="toggle-btn" data-action="logIn">Log in</button>
+          <button id="register-choice-first" type="button" class="toggle-btn"data-action="register">Register</button>
+          <a class="close-sign-in closePopUp">&times;</a>
         </div>
        
         <label for="logInUsername"></label>
@@ -50,23 +55,25 @@
         <label for="logInPassword"></label>
         <input id="logInPassword" class = "form-input" type="text" placeholder="Password" required />
         <button class="form-button">Log In</button>
-        <button id="logOut">Log Out</button>
+        
       </form>
   
       <form id="createAccount" class="pop-up-sign-in-hide popUpForm">
         <div class="button-box">
-          <div id="toggle-button"></div>
-          <button id= "log-in-choice" type="button" class="toggle-btn">Log in</button>
-          <button id="register-choice" type="button" class="toggle-btn">Register</button>
-         
+          <div id="toggle-button-right"></div>
+          <button id= "log-in-choice-second" type="button" class="toggle-btn" data-action="logIn">Log in</button>
+          <button id="register-choice-second" type="button" class="toggle-btn" data-action="register">Register</button>
+          <a class="close-sign-in closePopUp">&times;</a>
         </div>
         
         <label for="createUsername"></label>
-        <input id="createUsername" class = "form-input" type="text" placeholder="username" required />
+        <input id="createUsername" class = "form-input" type="text" placeholder="Username" required />
         <label for="createPassword"></label>
-        <input id="createPassword" class = "form-input" type="text" placeholder="password" required />
-        <button class="form-button">Create Account</button>
-      </form> -->
+
+        <input id="createPassword" class = "form-input" type="text" placeholder="Password" required />
+        <button class="form-button">Register</button>
+      </form>
+
 
       <form id="createAccount" class="popUpForm">
         <h3>Create Account</h3>
