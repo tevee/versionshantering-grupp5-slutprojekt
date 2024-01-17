@@ -1,24 +1,21 @@
-
-
 .popUpSignInVisable{
-    margin: auto;
     background-color: #aeccccff;
-    height: 280px;
-    width: 270px;
-    display: none;
+    height: 400px;
+    width: 350px;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     border: 1px solid black; 
-    margin-bottom: 20px;
-   
-    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .close-sign-in {
     position:relative;
-    top:-40px;
-    left: 14px;
+    top:-46px;
+    right: 8px;
     cursor: pointer;
     font-size: 2rem;
     font-weight: bold;
@@ -35,27 +32,16 @@
     border-bottom: 1px solid black;
     background-color: #aeccccff;
     font-size: 1rem;
-   
-}
-
-
-.form-input:first-of-type{
-    margin-top: 90px;
-}
-.form-input:nth-of-type(2){
-    margin-top: 10px;
 }
 
 .button-box{
-    margin-top: 60px;
-    width: 220px;
-    position: absolute;
-    top:60px;
-    left: 50px;
-    box-shadow: 0 0 20px 9px #6c9999ff;
+    position: relative;
+    width: 100%;
+    box-shadow: 0px 10px 20px 0px #6c9999ff;
     border-radius: 30px;
     display:flex;
     justify-content:space-between;
+    margin: 3rem 0 2rem;
     
 }
 .form-button{
@@ -92,67 +78,43 @@
     color:white;
     font-size: 14px;
     font-weight: bolder;
-    
 }
 
-.toggle-btn:first-of-type{
-    margin-right: 30px;
-    
-}
-
-#toggle-button{
+.toggle-button{
 position: absolute;
-left: 0px;
-width: 110px;
+width: 50%;
 height: 100%;
 background: linear-gradient(to right, purple, #1abc9c);
 border-radius: 30px;
 transition: .5s;
 }
 
-#toggle-button-right{
-    position: absolute;
-    left: 110px;
-    width: 110px;
-    height: 100%;
-    background: linear-gradient(to right, purple, #1abc9c);
-    border-radius: 30px;
-    transition: .5s; 
+.toggle-button.left {
+    left: 0;
 }
 
-@media (min-width: 750px){
-    .button-box{
-       
-        top: 70px;
-        left: 560px;
-        
-       
-        
-    }
+.toggle-button.right {
+    left: 50%;
+}
 
+@media (min-width: 768px){
     .popUpSignInVisable{
-        
         height: 350px;
         width: 400px;
-      
-        
     }
-
-    .close-sign-in {
-        position:relative;
-        top:-50px;
-        left: 83px;
-        
-      }
 
     .form-button{
         margin-top: 60px;
-        
-        
     }
-
-   
-
-    
 }
 
+@media screen and (min-width: 1080px) {
+    .popUpSignInVisable{
+        height: 600px;
+        width: 600px;
+    }
+
+    .button-box {
+        margin-bottom: 6rem;
+    }
+}
