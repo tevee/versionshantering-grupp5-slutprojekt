@@ -11,22 +11,24 @@ export function displayLoggedInUser() {
 
     if(document.cookie !== '') {
         const signInBtn = document.querySelector('.sign-in-btn')
+        const logOutButton = document.querySelector('#logOut')
+        const logInContainerEl = document.querySelector('#logIn')
         signInBtn.classList.toggle('hide')
-        const logOutButton = document.querySelector('#logOut');
-        logOutButton.classList.toggle('hide');
+        logOutButton.classList.toggle('hide')
+        logInContainerEl.style.display = 'none'
     }
 }
 
 export function displayGuest() {
     const displayLoggedInUserEl = document.querySelector('#loggedInUsername')
     const signInBtn = document.querySelector('.sign-in-btn')
+    const logOutButton = document.querySelector('#logOut');
     const allMessageDeleteBtns = document.querySelectorAll('.delete-message-btn')
     allMessageDeleteBtns.forEach(deleteBtn => deleteBtn.remove())
     
     if(document.cookie !== '') {
         displayLoggedInUserEl.innerText = ''
         signInBtn.classList.toggle('hide')
-        const logOutButton = document.querySelector('#logOut');
         logOutButton.classList.toggle('hide');
     }
 }
