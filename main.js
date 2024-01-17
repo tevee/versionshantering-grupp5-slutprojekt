@@ -9,10 +9,10 @@ const publishMessageFormEl = document.querySelector('#publishMessageForm')
 const popUpModalBtns =  [... document.querySelectorAll('.popUpFormBtn')]
 const closePopUpModalBtns = [... document.querySelectorAll('.closePopUp')]
 const signInBtn = document.querySelector('.sign-in-btn');
+const messageBoardEl = document.querySelector('#messageBoard')
 
 displayLoggedInUser();
 console.log(document.cookie);
-
 
 // Se alla existerande användare
 getUserData('users', '')
@@ -117,6 +117,7 @@ logInFormEl.addEventListener('submit', event => {
                 document.cookie = `username=${userNameInputValue};`
                 console.log(userNameInputValue, 'logged in');
                 displayLoggedInUser();
+                break;
             }
         }
     })
@@ -130,7 +131,6 @@ logOutBtn.addEventListener('click', event => {
     displayGuest()
     // Remove cookie
     document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-
 })
 
 publishMessageFormEl.addEventListener('submit', event => {
@@ -143,11 +143,37 @@ publishMessageFormEl.addEventListener('submit', event => {
         username: cookieValue,
         date: messageDate
     }
+    const displayGuestMessage = document.querySelector('#publishMessageForm > h3')
+    displayGuestMessage.innerText = ''
+    let uniqueKey;
 
-    postUserData('messages', uniqueMessage)
-    .then(key => getUserData('messages', key.name))
-    .then(displayMessage)
-    .catch(error => console.log(error))
+    if(cookieValue !== undefined) {
+        postUserData('messages', uniqueMessage)
+        .then(key => {
+            uniqueKey = key.name;
+            return getUserData('messages', key.name);
+        })
+        .then(message => displayMessage(message, uniqueKey))
+        .catch(error => console.log(error))
+    }
+    else displayGuestMessage.innerText = 'Log in to publish a message'
 
     publishMessageFormEl.reset()
+})
+
+messageBoardEl.addEventListener('click', event => {
+    event.preventDefault()
+
+    if(event.target.getAttribute('class') === 'delete-message-btn') {
+        const parentContainer = event.target.closest('.message-box');
+        parentContainer.remove();
+
+        getUserData('messages', '')
+            .then(messages => {
+                for(const key in messages) {
+                    if(key === parentContainer.id) deleteUserData('messages', key)
+                }
+            })
+            .catch(error => console.log(error))
+    }
 })

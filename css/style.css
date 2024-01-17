@@ -47,7 +47,7 @@ main {
   top: -42px;
 }
 
-.messageHeader {
+.messageHeader, .contentMessageHeader {
   display: flex;
   justify-content: space-between;
   padding: 0 0.5rem;
@@ -58,14 +58,14 @@ main {
   align-items: center;
 }
 
-.closePopUp {
+.closePopUp, .delete-message-btn {
   cursor: pointer;
   font-size: 2rem;
   font-weight: bold;
   color: white;
 }
 
-.closePopUp:hover {
+.closePopUp:hover, .delete-message-btn:hover {
   color: black;
 }
 
@@ -87,6 +87,15 @@ main {
 
 .message-box > h4 {
   margin-bottom: 2px;
+}
+
+.contentMessageHeader > h3 {
+  align-self: center;
+  padding-bottom: 2px;
+}
+
+.inner-msg-container {
+  padding: 0 0.5rem;
 }
 
 /* footer */

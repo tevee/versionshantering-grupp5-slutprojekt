@@ -1,44 +1,90 @@
 import { createAndAppendElement } from "./createElement.js"
 
 export function displayLoggedInUser() {
-
     const cookieValue = document.cookie.split("username=").slice(1)
     const displayLoggedInUserEl = document.querySelector('#loggedInUsername')
     displayLoggedInUserEl.innerText = cookieValue
+
+    displayDeletBtnForUser()
 
     if(document.cookie !== '') {
         const signInBtn = document.querySelector('.sign-in-btn')
         signInBtn.classList.toggle('hide')
     }
-
 }
 
 export function displayGuest() {
     const displayLoggedInUserEl = document.querySelector('#loggedInUsername')
     const signInBtn = document.querySelector('.sign-in-btn')
+    const allMessageDeleteBtns = document.querySelectorAll('.delete-message-btn')
+    allMessageDeleteBtns.forEach(deleteBtn => deleteBtn.remove())
     
-    displayLoggedInUserEl.innerText = ''
-    signInBtn.classList.toggle('hide')
+    if(document.cookie !== '') {
+        displayLoggedInUserEl.innerText = ''
+        signInBtn.classList.toggle('hide')
+    }
 }
 
 export function getAndDisplayExistingMessages(messagesObj) {
     const messageBoardEl = document.querySelector('#messageBoard')
+    const cookieValue = document.cookie.split("username=").slice(1)[0]
 
-    for(const message in messagesObj) {
-        const uniqueMessage = messagesObj[message]
-       const div = createAndAppendElement('div', "", messageBoardEl)
-       div.classList.add('message-box')
-        createAndAppendElement('h3', uniqueMessage.username, div)
-        createAndAppendElement('p', uniqueMessage.message, div)
+    for(const key in messagesObj) {
+        const uniqueMessage = messagesObj[key]
+        const div = createAndAppendElement('div', "", messageBoardEl)
+        div.classList.add('message-box')
+        div.id = key
+        
+        const messageHeader = createAndAppendElement('div', '', div)
+        messageHeader.classList.add('contentMessageHeader')
+
+        createAndAppendElement('h3', uniqueMessage.username, messageHeader)
+
+        if(uniqueMessage.username === cookieValue) {
+            const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
+            deleteMessageBtn.classList.add('delete-message-btn')
+        }
+
+        const messageContent = createAndAppendElement('div', '', div)
+        messageContent.classList.add('inner-msg-container')
+        createAndAppendElement('p', uniqueMessage.date, messageContent)
+        createAndAppendElement('p', uniqueMessage.message, messageContent)
     }
 }
 
-export function displayMessage(uniqueMessage) {
+export function displayMessage(uniqueMessage, uniqueKey) {
     const messageBoardEl = document.querySelector('#messageBoard')
+    const cookieValue = document.cookie.split("username=").slice(1)[0]
 
-   const div = createAndAppendElement('div', "", messageBoardEl)
-   div.classList.add('message-box')
-   createAndAppendElement('h3', uniqueMessage.username, div)
-   createAndAppendElement('p', uniqueMessage.date, div)
-   createAndAppendElement('p', uniqueMessage.message, div)
+    const div = createAndAppendElement('div', "", messageBoardEl)
+    div.classList.add('message-box')
+    div.id = uniqueKey
+
+    const messageHeader = createAndAppendElement('div', '', div)
+    messageHeader.classList.add('contentMessageHeader')
+
+    createAndAppendElement('h3', uniqueMessage.username, messageHeader)
+
+    if(uniqueMessage.username === cookieValue) {
+        const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
+        deleteMessageBtn.classList.add('delete-message-btn')
+    }
+
+    const messageContent = createAndAppendElement('div', '', div)
+    messageContent.classList.add('inner-msg-container')
+    createAndAppendElement('p', uniqueMessage.date, messageContent)
+    createAndAppendElement('p', uniqueMessage.message, messageContent)
+}
+
+function displayDeletBtnForUser() {
+    const allMessageHeader = document.querySelectorAll('.contentMessageHeader')
+    const cookieValue = document.cookie.split("username=").slice(1)[0]
+
+    allMessageHeader.forEach(messageHeader => {
+        const username = messageHeader.querySelector('h3').innerText
+        if(username === cookieValue) {
+            const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
+            deleteMessageBtn.classList.add('delete-message-btn')
+        }
+    })
 }
