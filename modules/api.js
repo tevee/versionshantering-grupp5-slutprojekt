@@ -3,11 +3,11 @@ export async function getUserData(type, key) {
     if(key !== '') url = `https://version-control-fe23-105e9-default-rtdb.europe-west1.firebasedatabase.app/${type}/${key}/.json`
     else url = `https://version-control-fe23-105e9-default-rtdb.europe-west1.firebasedatabase.app/${type}/.json`
 
-    const response = await fetch(url)
+    const response = await fetch(url);
     const data = await response.json();
     
-    if(response.ok && data !== null) return data;
-    else if(data === null) throw 'no result'
+    if(response.ok && data !== null || data !== undefined) return data;
+    else if(data === null || data === undefined) throw 'no result'
     else throw 'error'
 }
 

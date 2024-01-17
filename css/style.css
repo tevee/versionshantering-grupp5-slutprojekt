@@ -47,7 +47,7 @@ main {
   top: -42px;
 }
 
-.messageHeader {
+.messageHeader, .contentMessageHeader {
   display: flex;
   justify-content: space-between;
   padding: 0 0.5rem;
@@ -58,14 +58,14 @@ main {
   align-items: center;
 }
 
-.closePopUp {
+.closePopUp, .delete-message-btn {
   cursor: pointer;
   font-size: 2rem;
   font-weight: bold;
   color: white;
 }
 
-.closePopUp:hover {
+.closePopUp:hover, .delete-message-btn:hover {
   color: black;
 }
 
@@ -87,6 +87,26 @@ main {
 
 .message-box > h4 {
   margin-bottom: 2px;
+}
+
+.contentMessageHeader-left {
+  display: flex;
+  align-items: center;
+}
+
+.contentMessageHeader-left > h3 {
+  padding-bottom: 2px;
+  margin-right: 4px;
+}
+
+.contentMessageHeader-left > p {
+  font-size: 0.8rem;
+  line-height: 1.8rem;
+  font-family: "Roboto","Arial",sans-serif;
+}
+
+.inner-msg-container {
+  padding: 0 0.5rem;
 }
 
 /* footer */
