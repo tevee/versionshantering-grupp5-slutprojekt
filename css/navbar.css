@@ -12,6 +12,10 @@ li{
     margin-bottom: 20px;
 }
 
+
+li:first-of-type{
+  margin-top: 30px;
+}
 li:hover{
     color: #36454F;
     cursor: pointer;
@@ -107,6 +111,10 @@ transform: translate(-50%, 0%) rotate(50deg);
         visibility: hidden;
         
     }
+
+    li:first-of-type{
+        margin-top: 0px;
+      }
     .off-screen-menu{
       right: 190px;
       background-color: #34495e;

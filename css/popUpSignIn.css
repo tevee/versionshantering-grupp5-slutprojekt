@@ -36,7 +36,7 @@
 
 .button-box{
     position: relative;
-    width: 100%;
+    width: 220px;
     box-shadow: 0px 10px 20px 0px #6c9999ff;
     border-radius: 30px;
     display:flex;
@@ -56,8 +56,20 @@
     font-size: 14px;
     
 }
+
+.log-out-btn{
+    position: absolute;
+    width: 70px;
+    right: 85px;
+    margin-top: 6px;
+    font-size: 14px;
+  line-height: 3;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: #aeccccff;
+}
 .toggle-btn{
-    padding: 10px 20px;
+    line-height: 0;
     cursor: pointer;
     background: transparent;
     border:0;
