@@ -13,11 +13,12 @@
   --secondary-color: coral;
   --text-color: white;
 }
+
 button:hover {
   cursor: pointer;
 }
 
-main {
+body {
   background-color: var(--background-color);
 }
 
@@ -37,25 +38,20 @@ main {
 .contentContainer {
   display: flex;
   flex-direction: column;
+  margin: 4rem 0;
 }
 
 .publishMessageContainer {
   margin: 0 4rem;
 }
 
-#loggedInUsername{
-  position: absolute;
-  margin-top: 15px;
-  left: 90px;
-  
-  
-}
-
-.popUpFormBtn {
+.btn-styling {
   width: 100%;
   line-height: 3;
   border: 1px solid black;
   border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: 600;
   background-color: #aeccccff;
 }
  .form-button-send{
@@ -171,7 +167,6 @@ label{
 
 .contentMessageHeader-left > p {
   font-size: 0.8rem;
-  line-height: 1.8rem;
   font-family: "Roboto","Arial",sans-serif;
 }
 
@@ -206,12 +201,6 @@ footer {
   .message-box {
     width: 400px;
   }
-  #loggedInUsername{
-    position:unset;
-    
-    
-  }
-  
 }
 
 @media screen and (min-width: 1080px) {
