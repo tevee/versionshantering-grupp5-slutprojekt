@@ -100,7 +100,7 @@ label{
 
 #messageBoard {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     margin: 2rem 4rem 0;
 }
