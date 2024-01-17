@@ -1,16 +1,16 @@
 import { getUserData, postUserData, deleteUserData } from "./modules/api.js";
 import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displayMessage } from "./modules/display.js";
+import { autoHeightOnTextArea } from "./modules/textarea.js";
 
 const hamburgerMenu = document.querySelector('.hamburger-menu');
-const createAccountFormEl = document.querySelector('#createAccount')
-const logInFormEl = document.querySelector('#logIn')
+const createAccountFormEl = document.querySelector('#createAccountForm')
+const logInFormEl = document.querySelector('#logInForm')
 const logOutBtn = document.querySelector('#logOut')
 const publishMessageFormEl = document.querySelector('#publishMessageForm')
 const popUpModalBtns =  [... document.querySelectorAll('.popUpFormBtn')]
 const closePopUpModalBtns = [... document.querySelectorAll('.closePopUp')]
-const signInBtn = document.querySelector('.sign-in-btn');
 const messageBoardEl = document.querySelector('#messageBoard')
-
+const messageTextareaEl = document.querySelector('#message')
 
 displayLoggedInUser();
 console.log(document.cookie);
@@ -24,37 +24,36 @@ getUserData('messages', '')
 .then(messages => getAndDisplayExistingMessages(messages))
 .catch(error => console.log(error))
 
+messageTextareaEl.addEventListener('input', event => {
+    event.preventDefault();
+    autoHeightOnTextArea();
+})
+
 popUpModalBtns.forEach(button => {
     button.addEventListener('click', event => {
         event.preventDefault();
         let modal = button.getAttribute('data-modal');
         
-        if (modal === 'logIn') {
-            const logInForm = document.querySelector('#createAccount');
-            logInForm.style.display = 'none';
-           
-        } 
-        
-        else if (modal === 'createAccount') {
-            const createAccountForm = document.querySelector('#logIn');
-            createAccountForm.style.display = 'none';
-        }
-        
+        if (modal === 'logIn') document.querySelector('#createAccount').style.display = 'none';
+        else if (modal === 'createAccount') document.querySelector('#logIn').style.display = 'none';
+
         document.getElementById(modal).style.display = 'flex';
     });
 });
-
 
 closePopUpModalBtns.forEach(button => {
     button.addEventListener('click', event => {
         event.preventDefault()
         let modal = button.closest('.popUpForm')
         modal.style.display = 'none';
-        
-        
     })
 })
 
+window.addEventListener('click', event => {
+    if(event.target.className === 'popUpFormContainer popUpForm') {
+        event.target.style.display = 'none'
+    }
+})
 
 hamburgerMenu.addEventListener('click', (event)=>{
     event.preventDefault();
@@ -62,7 +61,6 @@ hamburgerMenu.addEventListener('click', (event)=>{
     hamburgerMenu.classList.toggle('active');
     offScreenMenu.classList.toggle('active');
 })
-
 
 createAccountFormEl.addEventListener('submit', event => {
     event.preventDefault()
@@ -90,7 +88,6 @@ createAccountFormEl.addEventListener('submit', event => {
 
         if(createUser.username !== '' && createUser.password !== '') {
             postUserData('users', createUser)
-    
             .then(result => console.log(result))
             .catch(error => console.log(error))
             console.log('Account created!');
@@ -105,8 +102,7 @@ logInFormEl.addEventListener('submit', event => {
     event.preventDefault()
     const userNameInputValue = document.querySelector('#logInUsername').value
     const passwordInputValue = document.querySelector('#logInPassword').value
-    
-    
+    console.log('it works');
     
     getUserData('users', '')
     .then(users => {
@@ -115,17 +111,13 @@ logInFormEl.addEventListener('submit', event => {
                 document.cookie = `username=${userNameInputValue};`
                 console.log(userNameInputValue, 'logged in');
                 displayLoggedInUser();
-
                 break;
-
             }
-            
         }
     })
     .catch(error => console.log(error))
 
     logInFormEl.reset()
-   
 })
 
 logOutBtn.addEventListener('click', event => {
