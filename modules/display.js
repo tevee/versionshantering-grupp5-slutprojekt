@@ -13,8 +13,10 @@ export function displayLoggedInUser() {
         const signInBtn = document.querySelector('.sign-in-btn')
         const logOutButton = document.querySelector('#logOut')
         const logInContainerEl = document.querySelector('#logIn')
+        const dropDownMenu = document.querySelector('.hover-container');
         signInBtn.classList.toggle('hide')
         logOutButton.classList.toggle('hide')
+        dropDownMenu.classList.toggle('hide');
         logInContainerEl.style.display = 'none'
     }
 }
@@ -25,11 +27,13 @@ export function displayGuest() {
     const logOutButton = document.querySelector('#logOut');
     const allMessageDeleteBtns = document.querySelectorAll('.delete-message-btn')
     allMessageDeleteBtns.forEach(deleteBtn => deleteBtn.remove())
+    const dropDownMenu = document.querySelector('.hover-container');
     
     if(document.cookie !== '') {
         displayLoggedInUserEl.innerText = ''
         signInBtn.classList.toggle('hide')
         logOutButton.classList.toggle('hide');
+        dropDownMenu.classList.toggle('hide');
     }
 }
 
