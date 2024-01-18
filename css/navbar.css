@@ -16,6 +16,11 @@ li{
     font-weight: 600;
 }
 
+.position-icon, .log-out-icon{
+    opacity: 0;
+}
+
+
 li:hover{
     color: #36454F;
     cursor: pointer;
@@ -49,6 +54,15 @@ button.btn-styling {
     line-height: 0;
     height: 30px;
     padding: 1rem;
+    
+}
+.hover-container{
+    display: flex;
+  align-items: center;
+}
+
+#loggedInUsername{
+    margin-right: 15px;
 }
 
 .off-screen-menu{
@@ -77,6 +91,7 @@ nav{
     display: flex;
     background-color: #557a87ff;
 }
+
 
 .hamburger-menu{
     height: 50px;
@@ -120,9 +135,9 @@ transform: translate(-50%, 0%) rotate(50deg);
     transform: translate(-50%, 0%) rotate(-50deg);
 }
 
-.hide {
+ .hide {
     display: none;
-}
+} 
 
 @media (min-width: 768px) {
     header {
@@ -134,7 +149,7 @@ transform: translate(-50%, 0%) rotate(50deg);
         display: flex;
         justify-content: center;
         margin: 0 2rem;
-        min-width: 200px;
+        
     }
 
     .user > h3 {
@@ -157,7 +172,6 @@ transform: translate(-50%, 0%) rotate(50deg);
       position: static;
       display: flex;
       width: 100%;
-      margin-right: 1rem;
       transition: opacity 0.5s ease-in-out;
     }
 
@@ -178,4 +192,52 @@ transform: translate(-50%, 0%) rotate(50deg);
     .hamburger-menu span{
         transition: opacity 0.2s ease;
     }
+
+    .user-drop-down{
+        display:none;
+        width: 100px;
+        height: 40px;
+        background-color: black;
+        position:absolute;
+        border-radius: 30px;
+        
+        
+    
+    }
+    
+    .hover-container{
+        position:relative;
+    }
+    .hover-container:hover .user-drop-down{
+        display:block;
+        
+    }
+
+    .user-drop-down{
+        
+        position:absolute;
+        top: 25px;
+        left: -12px;
+    }
+    .position-icon{
+        opacity: 1;
+        margin-right:10px;
+    }
+    .btn-drop-down{
+        margin-top: 5px;
+        background-color:black;
+        color:white;
+        font-size: 14px;
+        width: 60px;
+        margin-left: 10px;
+        
+    }
+
+    .log-out-icon{
+       opacity: 1;
+        color: #fafafa; 
+        
+    }
+    
+    
 }

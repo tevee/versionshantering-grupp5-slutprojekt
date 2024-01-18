@@ -13,10 +13,19 @@ export function displayLoggedInUser() {
         const signInBtn = document.querySelector('.sign-in-btn')
         const logOutButton = document.querySelector('#logOut')
         const logInContainerEl = document.querySelector('#logIn')
+        const dropDownMenu = document.querySelector('.hover-container');
         signInBtn.classList.toggle('hide')
-        logOutButton.classList.toggle('hide')
+         logOutButton.classList.toggle('hide') 
+         dropDownMenu.classList.toggle('hide');
         logInContainerEl.style.display = 'none'
     }
+
+    
+
+    
+   
+
+
 }
 
 export function displayGuest() {
@@ -24,13 +33,16 @@ export function displayGuest() {
     const signInBtn = document.querySelector('.sign-in-btn')
     const logOutButton = document.querySelector('#logOut');
     const allMessageDeleteBtns = document.querySelectorAll('.delete-message-btn')
+    const dropDownMenu = document.querySelector('.hover-container');
     allMessageDeleteBtns.forEach(deleteBtn => deleteBtn.remove())
     
     if(document.cookie !== '') {
         displayLoggedInUserEl.innerText = ''
         signInBtn.classList.toggle('hide')
-        logOutButton.classList.toggle('hide');
+         logOutButton.classList.toggle('hide'); 
+         dropDownMenu.classList.toggle('hide');
     }
+    
 }
 
 export function getAndDisplayExistingMessages(messagesObj) {
