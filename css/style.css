@@ -158,6 +158,9 @@ label {
 	border-radius: 6px;
 	margin-bottom: 1rem;
 	padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
 }
 
 .messageBorder {
@@ -198,6 +201,26 @@ label {
   word-wrap: break-word;
 }
 
+.message-footer {
+	padding-top: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.amount-of-likes {
+	margin: 0 0.5rem 0 0.3rem;
+	font-size: 0.8rem;
+	font-family: "Roboto", "Arial", sans-serif;
+}
+
+.like-btn, .dislike-btn {
+	font-size: 1.6rem;
+	line-height: 1.8rem;
+	background-color: inherit;
+	border: none;
+}
+
 /* footer */
 footer {
 	height: 80px;
@@ -211,8 +234,8 @@ footer {
 	color: #fff;
 	font-size: 2.5rem;
 }
-/* Contact*/
 
+/* Contact*/
 .displayContact {
 	display: flex;
 	align-items: center;

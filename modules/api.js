@@ -48,3 +48,21 @@ export async function deleteUserData(type, key, property) {
     if(response.ok) return `successfully removed ${key}`
     else throw 'error'
 }
+
+export async function putData(type, putObj, key, prop) {
+    const post = {
+        method: "PUT",
+        body: JSON.stringify(putObj),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    }
+    const url = `https://version-control-fe23-105e9-default-rtdb.europe-west1.firebasedatabase.app/${type}/${key}/${prop}/.json`
+
+    const response = await fetch(url, post)
+    const data = await response.json()
+
+    if(response.ok && data !== null) return data;
+    else if(data === null) throw 'no result'
+    else throw 'error'
+}
