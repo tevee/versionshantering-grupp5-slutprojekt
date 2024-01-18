@@ -14,8 +14,8 @@
 
 .close-sign-in {
     position:relative;
-    top:-55px;
-    right: -57px;
+    top:-46px;
+    right: 8px;
     cursor: pointer;
     font-size: 2rem;
     font-weight: bold;
@@ -69,7 +69,6 @@
   background-color: #aeccccff;
 }
 .toggle-btn{
-    margin-top: 5px;
     line-height: 0;
     cursor: pointer;
     background: transparent;
@@ -107,12 +106,6 @@ transition: .5s;
     .form-button{
         margin-top: 60px;
     }
-    .close-sign-in {
-        
-        top:-55px;
-        right: -180px;
-        
-      }
 }
 
 @media screen and (min-width: 1080px) {
