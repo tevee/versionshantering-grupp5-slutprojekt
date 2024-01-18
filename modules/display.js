@@ -72,16 +72,10 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     div.classList.add('messageBorder');
     div.id = uniqueKey
 
-const elements = document.querySelectorAll('.messageBorder');
+    const elements = document.querySelectorAll('.messageBorder');
 
-if (elements.length > 0) {
-    elements[0].classList.add('messageBorder');
-    
-}
-
-if (elements.length > 1) {
-    elements[0].classList.remove('messageBorder');
-}
+    if (elements.length > 0) elements[0].classList.add('messageBorder');
+    if (elements.length > 1) elements[0].classList.remove('messageBorder');
 
     const messageHeader = createAndAppendElement('div', '', div)
     messageHeader.classList.add('contentMessageHeader')

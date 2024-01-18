@@ -1,7 +1,9 @@
 import { getUserData, postUserData, deleteUserData } from "./modules/api.js";
 import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displayMessage } from "./modules/display.js";
 import { autoHeightOnTextArea } from "./modules/textarea.js";
+import { handleTabClick } from "./modules/navigation.js";
 
+const navigationEl = document.querySelector('.off-screen-menu')
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const createAccountFormEl = document.querySelector('#createAccountForm')
 const logInFormEl = document.querySelector('#logInForm')
@@ -13,7 +15,15 @@ const messageBoardEl = document.querySelector('#messageBoard')
 const messageTextareaEl = document.querySelector('#message')
 
 displayLoggedInUser();
-console.log(document.cookie);
+navigationEl.addEventListener('click', event => {
+    handleTabClick(event);
+
+    if(window.innerWidth < 768) {
+        const hamburgerMenuEl = document.querySelector('.hamburger-menu')
+        hamburgerMenuEl.classList.remove('active')
+        navigationEl.classList.remove('active')
+    }
+})
 
 // Se alla existerande användare
 getUserData('users', '')
@@ -126,7 +136,6 @@ logOutBtn.addEventListener('click', event => {
     document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
       
 })
-
 
 publishMessageFormEl.addEventListener('submit', event => {
     event.preventDefault()

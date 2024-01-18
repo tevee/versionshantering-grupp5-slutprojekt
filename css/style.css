@@ -181,6 +181,10 @@ label {
 	padding: 0 0.5rem;
 }
 
+.inner-msg-container > p {
+  word-wrap: break-word;
+}
+
 /* footer */
 footer {
 	height: 80px;
