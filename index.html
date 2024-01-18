@@ -24,10 +24,19 @@
 		<header>
 			<div class="user">
 				<button class="sign-in-btn popUpFormBtn btn-styling" data-modal="logIn">
-					Sign in
+					Log in
+					<i class="fa-solid fa-arrow-right-to-bracket fa-sm"></i>
 				</button>
-				<h3 id="loggedInUsername"></h3>
-				<button id="logOut" class="hide btn-styling">Log Out</button>
+				
+				<div class=" hide hover-container desktop-mode">
+					<i class="fa-regular fa-user fa-lg position-icon hide"></i>
+				<h3 id="loggedInUsername"> </h3>
+				<div class="user-drop-down">
+				<button id="logOut" class=" hide btn-styling btn-drop-down"> Log Out</button>
+				<i class="fa-solid fa-arrow-right-from-bracket fa-sm log-out-icon hide"></i>
+				</div>
+				</div>
+			
 			</div>
 
 			<div class="nav">
