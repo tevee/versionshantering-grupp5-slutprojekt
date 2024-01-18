@@ -26,6 +26,14 @@ input {
     outline: none;
 }
 
+.tab-panel {
+    display: none;
+}
+  
+.tab-panel.active {
+    display: block;
+}
+
 .user {
     display: flex;
     align-items: center;
