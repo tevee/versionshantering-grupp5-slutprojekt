@@ -217,6 +217,23 @@ div > label {
 	padding: 2%;
 }
 
+.aboutStyle {
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 10%;
+	width: 100%;
+}
+img {
+	width: 50%;
+	padding: 2%;
+}
+div > h2 {
+	display: block;
+}
+
 @media screen and (min-width: 768px) {
 	.publishMessageContainer {
 		width: 400px;
@@ -250,5 +267,13 @@ div > label {
 
 	#messageBoard {
 		margin-top: 0;
+	}
+}
+@media screen and (max-width: 768px) {
+	.aboutStyle {
+		flex-direction: column;
+	}
+	img {
+		width: 100%;
 	}
 }
