@@ -1,4 +1,4 @@
-import { getUserData, postUserData, deleteUserData } from "./modules/api.js";
+import { getUserData, postUserData, deleteUserData, putData } from "./modules/api.js";
 import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displayMessage } from "./modules/display.js";
 import { autoHeightOnTextArea } from "./modules/textarea.js";
 import { handleTabClick } from "./modules/navigation.js";
@@ -24,11 +24,6 @@ navigationEl.addEventListener('click', event => {
         navigationEl.classList.remove('active')
     }
 })
-
-// Se alla existerande användare
-getUserData('users', '')
-.then(users => console.log(users))
-.catch(error => console.log(error))
 
 getUserData('messages', '')
 .then(messages => getAndDisplayExistingMessages(messages))
@@ -145,7 +140,11 @@ publishMessageFormEl.addEventListener('submit', event => {
     const uniqueMessage = {
         message: messageElValue,
         username: cookieValue,
-        date: messageDate
+        date: messageDate,
+        likes: {
+            users: [''], //array must include empty string or else it becomes undefined
+            likesCount: 0
+        }
     }
     const displayGuestMessage = document.querySelector('#publishMessageForm > h3')
     displayGuestMessage.innerText = ''
@@ -179,5 +178,67 @@ messageBoardEl.addEventListener('click', event => {
                 }
             })
             .catch(error => console.log(error))
+    }
+
+    if(event.target.getAttribute('class') === 'fa-solid fa-thumbs-up like-icon' && document.cookie !== '') {
+        const parentContainer = event.target.closest('.message-box')
+
+        getUserData('messages', '')
+        .then(messages => {
+            for(const key in messages) {
+                const userList = messages[key].likes.users;
+                const loggedInUser = document.cookie.split("username=").slice(1)[0]
+                
+                if(key === parentContainer.id && !userList.includes(loggedInUser)){
+                    userList.push(loggedInUser);
+                    let likesCount = messages[key].likes.likesCount;
+                    likesCount++;
+
+                    const likes = {
+                        likesCount: likesCount,
+                        users: userList
+                    }
+
+                    putData('messages', likes, key, 'likes')
+                    .then(likesObj => {
+                        const likesEl = document.querySelector(`#${key} > .message-footer > .amount-of-likes`)
+                        likesEl.innerText = likesObj.likesCount;
+                    })
+                    .catch(error => console.log(error))
+                    break;
+                }
+            }
+        })
+    }
+    else if(event.target.getAttribute('class') === 'fa-solid fa-thumbs-up fa-rotate-180 dislike-icon' && document.cookie !== '') {
+        const parentContainer = event.target.closest('.message-box')
+
+        getUserData('messages', '')
+        .then(messages => {
+            for(const key in messages) {
+                const userList = messages[key].likes.users;
+                const loggedInUser = document.cookie.split("username=").slice(1)[0]
+                
+                if(key === parentContainer.id && userList.includes(loggedInUser)){
+                    const index = userList.indexOf(loggedInUser)
+                    userList.splice(index, 1)
+                    let likesCount = messages[key].likes.likesCount;
+                    likesCount--;
+
+                    const likes = {
+                        likesCount: likesCount,
+                        users: userList
+                    }
+
+                    putData('messages', likes, key, 'likes')
+                    .then(likesObj => {
+                        const likesEl = document.querySelector(`#${key} > .message-footer > .amount-of-likes`)
+                        likesEl.innerText = likesObj.likesCount;
+                    })
+                    .catch(error => console.log(error))
+                    break;
+                }
+            }
+        })
     }
 })
