@@ -1,7 +1,9 @@
-import { getUserData, postUserData, deleteUserData } from "./modules/api.js";
-import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displayMessage } from "./modules/display.js";
+import { getUserData, postUserData, deleteUserData, putData } from "./modules/api.js";
+import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displayMessage} from "./modules/display.js";
 import { autoHeightOnTextArea } from "./modules/textarea.js";
+import { handleTabClick } from "./modules/navigation.js";
 
+const navigationEl = document.querySelector('.off-screen-menu')
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const createAccountFormEl = document.querySelector('#createAccountForm')
 const logInFormEl = document.querySelector('#logInForm')
@@ -12,17 +14,21 @@ const closePopUpModalBtns = [... document.querySelectorAll('.closePopUp')]
 const messageBoardEl = document.querySelector('#messageBoard')
 const messageTextareaEl = document.querySelector('#message')
 
-displayLoggedInUser();
-console.log(document.cookie);
-
-// Se alla existerande användare
-getUserData('users', '')
-.then(users => console.log(users))
-.catch(error => console.log(error))
-
 getUserData('messages', '')
 .then(messages => getAndDisplayExistingMessages(messages))
 .catch(error => console.log(error))
+
+displayLoggedInUser();
+
+navigationEl.addEventListener('click', event => {
+    handleTabClick(event);
+
+    if(window.innerWidth < 768) {
+        const hamburgerMenuEl = document.querySelector('.hamburger-menu')
+        hamburgerMenuEl.classList.remove('active')
+        navigationEl.classList.remove('active')
+    }
+})
 
 messageTextareaEl.addEventListener('input', event => {
     event.preventDefault();
@@ -127,7 +133,6 @@ logOutBtn.addEventListener('click', event => {
       
 })
 
-
 publishMessageFormEl.addEventListener('submit', event => {
     event.preventDefault()
     const messageElValue = document.querySelector('#message').value
@@ -136,7 +141,11 @@ publishMessageFormEl.addEventListener('submit', event => {
     const uniqueMessage = {
         message: messageElValue,
         username: cookieValue,
-        date: messageDate
+        date: messageDate,
+        likes: {
+            users: [''], //array must include empty string or else it becomes undefined
+            likesCount: 0
+        }
     }
     const displayGuestMessage = document.querySelector('#publishMessageForm > h3')
     displayGuestMessage.innerText = ''
@@ -170,5 +179,62 @@ messageBoardEl.addEventListener('click', event => {
                 }
             })
             .catch(error => console.log(error))
+    }
+
+    if(event.target.classList.contains('like-icon') && document.cookie !== '') {
+        const parentContainer = event.target.closest('.message-box')
+
+        getUserData('messages', '')
+        .then(messages => {
+            for(const key in messages) {
+                const userList = messages[key].likes.users;
+                const loggedInUser = document.cookie.split("username=").slice(1)[0]
+                
+                if(key === parentContainer.id && !userList.includes(loggedInUser)){
+                    const likeIcon = document.querySelector(`#${key} > .message-footer > .like-btn > i`)
+                    likeIcon.classList.add('active')
+
+                    userList.push(loggedInUser);
+                    let likesCount = messages[key].likes.likesCount;
+                    likesCount++;
+
+                    const likes = {
+                        likesCount: likesCount,
+                        users: userList
+                    }
+
+                    putData('messages', likes, key, 'likes')
+                    .then(likesObj => {
+                        const likesEl = document.querySelector(`#${key} > .message-footer > .amount-of-likes`)
+                        likesEl.innerText = likesObj.likesCount;
+                    })
+                    .catch(error => console.log(error))
+                    break;
+                }
+
+                else if(key === parentContainer.id && userList.includes(loggedInUser)){
+                    const likeIcon = document.querySelector(`#${key} > .message-footer > .like-btn > i`)
+                    likeIcon.classList.remove('active')
+
+                    const index = userList.indexOf(loggedInUser)
+                    userList.splice(index, 1)
+                    let likesCount = messages[key].likes.likesCount;
+                    likesCount--;
+
+                    const likes = {
+                        likesCount: likesCount,
+                        users: userList
+                    }
+
+                    putData('messages', likes, key, 'likes')
+                    .then(likesObj => {
+                        const likesEl = document.querySelector(`#${key} > .message-footer > .amount-of-likes`)
+                        likesEl.innerText = likesObj.likesCount;
+                    })
+                    .catch(error => console.log(error))
+                    break;
+                }
+            }
+        })
     }
 })

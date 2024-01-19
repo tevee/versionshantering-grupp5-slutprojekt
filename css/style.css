@@ -23,8 +23,14 @@ button:hover {
 
 body {
 	background-color: var(--background-color);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
+main{
+	flex-grow: 2;
+}
 .popUpFormContainer {
 	display: none;
 	position: fixed;
@@ -51,11 +57,18 @@ body {
 .btn-styling {
 	width: 100%;
 	line-height: 3;
-	border: 1px solid black;
+	border:none;
 	border-radius: 4px;
 	font-size: 1.2rem;
 	font-weight: 600;
 	background-color: #aeccccff;
+	
+	
+	
+}
+
+.sign-in-btn{
+	width: 110px;
 }
 .form-button-send {
 	width: 150px;
@@ -121,7 +134,7 @@ label {
 .closePopUp,
 .delete-message-btn {
 	cursor: pointer;
-	font-size: 2rem;
+	font-size: 1.3rem;
 	font-weight: bold;
 	color: white;
 }
@@ -145,6 +158,9 @@ label {
 	border-radius: 6px;
 	margin-bottom: 1rem;
 	padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
 }
 
 .messageBorder {
@@ -181,6 +197,34 @@ label {
 	padding: 0 0.5rem;
 }
 
+.inner-msg-container > p {
+  word-wrap: break-word;
+}
+
+.message-footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0.5rem 0.5rem 0;
+}
+
+.amount-of-likes {
+	margin: 0 0.5rem 0 0.3rem;
+	font-size: 0.8rem;
+	font-family: "Roboto", "Arial", sans-serif;
+}
+
+.message-footer > .like-btn > .active {
+	color: #fff;
+}
+
+.like-btn {
+	font-size: 1.6rem;
+	line-height: 1.8rem;
+	background-color: inherit;
+	border: none;
+}
+
 /* footer */
 footer {
 	height: 80px;
@@ -194,8 +238,8 @@ footer {
 	color: #fff;
 	font-size: 2.5rem;
 }
-/* Contact*/
 
+/* Contact*/
 .displayContact {
 	display: flex;
 	align-items: center;
@@ -247,6 +291,10 @@ div > h2 {
 	.message-box {
 		width: 400px;
 	}
+	.sign-in-btn{
+		width: 100px;
+	}
+	
 }
 
 @media screen and (min-width: 1080px) {
@@ -268,6 +316,8 @@ div > h2 {
 	#messageBoard {
 		margin-top: 0;
 	}
+
+	
 }
 @media screen and (max-width: 768px) {
 	.aboutStyle {
