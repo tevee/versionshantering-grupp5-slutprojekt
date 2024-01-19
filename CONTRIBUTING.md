@@ -1,6 +1,12 @@
 För att skicka en feature:
-- Skapa och arbeta i en ny modul och döp den till ditt namn
+- Skapa en ny modul och döp den till ditt namn
+- Använd inte prettier för det gör koden svår att läsa i js
 - Skriv en kort sammanfattning om featuren som kommentar längst upp i filen
+- Arbeta helst i den nyskapade modulen, behöver ni lägga till funktioner i andra moduler skriv en förklarande kommentar ovanför funktionen
+- Modifierar ni i en existerande funktion som inte ni har skapat, lägg till en kommentar på vad ni har ändrat/lagt till
+- För CSS skapa en ny css fil och skriv en kommentar längst upp som förklarar stylingen
+- För HTML modifiera inte koden alls förutom om ni ska skapa något statisk, vill ni skapa html dynamisk gör det med js kod
 - Ha beskrivande variabelnamn
 - Glöm inte indentera koden så att det blir lättläst
-- Slutligen skicka inte en halvfärdig feature
+- Skicka inte en halvfärdig feature
+- Se till att ni har den senaste commiten och fixa till alla konflikter och gör en sista kontroll så att sidan fungerar innan ni skickar pull request snälla jag ber er
