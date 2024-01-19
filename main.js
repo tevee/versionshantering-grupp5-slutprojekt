@@ -1,5 +1,5 @@
 import { getUserData, postUserData, deleteUserData, putData } from "./modules/api.js";
-import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displayMessage } from "./modules/display.js";
+import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displayMessage} from "./modules/display.js";
 import { autoHeightOnTextArea } from "./modules/textarea.js";
 import { handleTabClick } from "./modules/navigation.js";
 
@@ -14,7 +14,12 @@ const closePopUpModalBtns = [... document.querySelectorAll('.closePopUp')]
 const messageBoardEl = document.querySelector('#messageBoard')
 const messageTextareaEl = document.querySelector('#message')
 
+getUserData('messages', '')
+.then(messages => getAndDisplayExistingMessages(messages))
+.catch(error => console.log(error))
+
 displayLoggedInUser();
+
 navigationEl.addEventListener('click', event => {
     handleTabClick(event);
 
@@ -24,10 +29,6 @@ navigationEl.addEventListener('click', event => {
         navigationEl.classList.remove('active')
     }
 })
-
-getUserData('messages', '')
-.then(messages => getAndDisplayExistingMessages(messages))
-.catch(error => console.log(error))
 
 messageTextareaEl.addEventListener('input', event => {
     event.preventDefault();
@@ -180,7 +181,7 @@ messageBoardEl.addEventListener('click', event => {
             .catch(error => console.log(error))
     }
 
-    if(event.target.getAttribute('class') === 'fa-solid fa-thumbs-up like-icon' && document.cookie !== '') {
+    if(event.target.classList.contains('like-icon') && document.cookie !== '') {
         const parentContainer = event.target.closest('.message-box')
 
         getUserData('messages', '')
@@ -190,6 +191,9 @@ messageBoardEl.addEventListener('click', event => {
                 const loggedInUser = document.cookie.split("username=").slice(1)[0]
                 
                 if(key === parentContainer.id && !userList.includes(loggedInUser)){
+                    const likeIcon = document.querySelector(`#${key} > .message-footer > .like-btn > i`)
+                    likeIcon.classList.add('active')
+
                     userList.push(loggedInUser);
                     let likesCount = messages[key].likes.likesCount;
                     likesCount++;
@@ -207,19 +211,11 @@ messageBoardEl.addEventListener('click', event => {
                     .catch(error => console.log(error))
                     break;
                 }
-            }
-        })
-    }
-    else if(event.target.getAttribute('class') === 'fa-solid fa-thumbs-up fa-rotate-180 dislike-icon' && document.cookie !== '') {
-        const parentContainer = event.target.closest('.message-box')
 
-        getUserData('messages', '')
-        .then(messages => {
-            for(const key in messages) {
-                const userList = messages[key].likes.users;
-                const loggedInUser = document.cookie.split("username=").slice(1)[0]
-                
-                if(key === parentContainer.id && userList.includes(loggedInUser)){
+                else if(key === parentContainer.id && userList.includes(loggedInUser)){
+                    const likeIcon = document.querySelector(`#${key} > .message-footer > .like-btn > i`)
+                    likeIcon.classList.remove('active')
+
                     const index = userList.indexOf(loggedInUser)
                     userList.splice(index, 1)
                     let likesCount = messages[key].likes.likesCount;

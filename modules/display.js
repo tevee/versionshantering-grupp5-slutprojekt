@@ -1,5 +1,6 @@
 import { createAndAppendElement } from "./createElement.js"
 import { timePostedDifference } from "./date.js"
+import { getUserData } from "./api.js"
 
 function displayDeleteBtnForUser() {
     const allMessageHeader = document.querySelectorAll('.contentMessageHeader')
@@ -14,11 +15,30 @@ function displayDeleteBtnForUser() {
     })
 }
 
+function displayLikedIcons() {
+    const loggedInUser = document.cookie.split("username=").slice(1)[0]
+
+    getUserData('messages', '')
+    .then(messages => {
+        for(const key in messages) {
+            const uniqueMessage = messages[key]
+            for(const users of uniqueMessage.likes.users) {
+                if(loggedInUser === users) {
+                    const likeIcon = document.querySelector(`#${key} > .message-footer > .like-btn > i`)
+                    likeIcon.classList.add('active')
+                }
+            }
+        }
+    })
+    .catch(error => console.log(error))
+}
+
 export function displayLoggedInUser() {
     const cookieValue = document.cookie.split("username=").slice(1)
     const displayLoggedInUserEl = document.querySelector('#loggedInUsername')
     displayLoggedInUserEl.innerText = cookieValue
     displayDeleteBtnForUser()
+    displayLikedIcons()
 
     if(document.cookie !== '') {
         const signInBtn = document.querySelector('.sign-in-btn')
@@ -39,7 +59,9 @@ export function displayGuest() {
     const allMessageDeleteBtns = document.querySelectorAll('.delete-message-btn')
     allMessageDeleteBtns.forEach(deleteBtn => deleteBtn.remove())
     const dropDownMenu = document.querySelector('.hover-container');
-    
+    const allLikeIcons = document.querySelectorAll('.like-icon')
+    allLikeIcons.forEach(likeIcon => likeIcon.classList.remove('active'))
+
     if(document.cookie !== '') {
         displayLoggedInUserEl.innerText = ''
         signInBtn.classList.toggle('hide')
@@ -80,14 +102,10 @@ export function getAndDisplayExistingMessages(messagesObj) {
         const likeBtn = createAndAppendElement('button', '', messageFooter)
         const likeIcon = createAndAppendElement('i', '', likeBtn)
         const likesEl = createAndAppendElement('span', uniqueMessage.likes.likesCount, messageFooter)
-        const dislikeBtn = createAndAppendElement('button', '', messageFooter)
-        const dislikeIcon = createAndAppendElement('i', '', dislikeBtn)
         messageFooter.classList.add('message-footer')
         likeBtn.classList.add('like-btn')
         likeIcon.className = 'fa-solid fa-thumbs-up like-icon'
         likesEl.classList.add('amount-of-likes')
-        dislikeBtn.classList.add('dislike-btn')
-        dislikeIcon.className = 'fa-solid fa-thumbs-up fa-rotate-180 dislike-icon'
     }
 }
 
@@ -127,12 +145,8 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     const likeBtn = createAndAppendElement('button', '', messageFooter)
     const likeIcon = createAndAppendElement('i', '', likeBtn)
     const likesEl = createAndAppendElement('span', uniqueMessage.likes.likesCount, messageFooter)
-    const dislikeBtn = createAndAppendElement('button', '', messageFooter)
-    const dislikeIcon = createAndAppendElement('i', '', dislikeBtn)
     messageFooter.classList.add('message-footer')
     likeBtn.classList.add('like-btn')
     likeIcon.className = 'fa-solid fa-thumbs-up like-icon'
     likesEl.classList.add('amount-of-likes')
-    dislikeBtn.classList.add('dislike-btn')
-    dislikeIcon.className = 'fa-solid fa-thumbs-up fa-rotate-180 dislike-icon'
 }
