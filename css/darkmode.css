@@ -1,0 +1,8 @@
+@media (prefers-color-scheme: dark) {
+	:root {
+		--headerAndFooter-color:#000;
+		/* --headerAndFooter-hover-color: #1ed760; */ /*optional*/
+		--background-color: #121212;
+		--message-color: #aeccccff;
+	}
+}

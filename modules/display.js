@@ -1,44 +1,25 @@
 import { createAndAppendElement } from "./createElement.js"
 import { timePostedDifference } from "./date.js"
-import { getUserData } from "./api.js"
 
-function displayDeleteBtnForUser() {
-    const allMessageHeader = document.querySelectorAll('.contentMessageHeader')
-    const cookieValue = document.cookie.split("username=").slice(1)[0]
-
-    allMessageHeader.forEach(messageHeader => {
-        const username = messageHeader.querySelector('h3').innerText
-        if(username === cookieValue) {
-            const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
-            deleteMessageBtn.classList.add('delete-message-btn')
-        }
-    })
-}
-
-function displayLikedIcons() {
+function displayLikedIcons(messages) {
     const loggedInUser = document.cookie.split("username=").slice(1)[0]
 
-    getUserData('messages', '')
-    .then(messages => {
-        for(const key in messages) {
-            const uniqueMessage = messages[key]
-            for(const users of uniqueMessage.likes.users) {
-                if(loggedInUser === users) {
-                    const likeIcon = document.querySelector(`#${key} > .message-footer > .like-btn > i`)
-                    likeIcon.classList.add('active')
-                }
+    for(const key in messages) {
+        const uniqueMessage = messages[key]
+        for(const users of uniqueMessage.likes.users) {
+            if(loggedInUser === users) {
+                const likeIcon = document.querySelector(`#${key} > .message-footer > .like-btn > i`)
+                likeIcon.classList.add('active')
             }
         }
-    })
-    .catch(error => console.log(error))
+    }
 }
 
-export function displayLoggedInUser() {
-    const cookieValue = document.cookie.split("username=").slice(1)
+export function displayLoggedInUser(messages) {
+    const loggedInUser = document.cookie.split("username=").slice(1)
     const displayLoggedInUserEl = document.querySelector('#loggedInUsername')
-    displayLoggedInUserEl.innerText = cookieValue
-    displayDeleteBtnForUser()
-    displayLikedIcons()
+    displayLoggedInUserEl.innerText = loggedInUser
+    displayLikedIcons(messages)
 
     if(document.cookie !== '') {
         const signInBtn = document.querySelector('.sign-in-btn')
@@ -149,4 +130,17 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     likeBtn.classList.add('like-btn')
     likeIcon.className = 'fa-solid fa-thumbs-up like-icon'
     likesEl.classList.add('amount-of-likes')
+}
+
+export function displayDeleteBtnForUser() {
+    const allMessageHeader = document.querySelectorAll('.contentMessageHeader')
+    const cookieValue = document.cookie.split("username=").slice(1)[0]
+
+    allMessageHeader.forEach(messageHeader => {
+        const username = messageHeader.querySelector('h3').innerText
+        if(username === cookieValue) {
+            const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
+            deleteMessageBtn.classList.add('delete-message-btn')
+        }
+    })
 }
