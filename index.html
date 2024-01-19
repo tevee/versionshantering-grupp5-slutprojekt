@@ -27,17 +27,20 @@
 					Log in
 					<i class="fa-solid fa-arrow-right-to-bracket fa-sm"></i>
 				</button>
-				
-				<div class=" hide hover-container desktop-mode">
+
+				<div class="hide hover-container desktop-mode">
 					<i class="fa-regular fa-user fa-lg position-icon hide"></i>
-				<h3 id="loggedInUsername"> </h3>
-				 <a class="drop-down-arrow">&#x25BE;</a> 
-				<div class="user-drop-down">
-				<button id="logOut" class=" hide btn-styling btn-drop-down"> Log Out</button>
-				<i class="fa-solid fa-arrow-right-from-bracket fa-sm log-out-icon hide"></i>
+					<h3 id="loggedInUsername"></h3>
+					<a class="drop-down-arrow">&#x25BE;</a>
+					<div class="user-drop-down">
+						<button id="logOut" class="hide btn-styling btn-drop-down">
+							Log Out
+						</button>
+						<i
+							class="fa-solid fa-arrow-right-from-bracket fa-sm log-out-icon hide"
+						></i>
+					</div>
 				</div>
-				</div>
-			
 			</div>
 
 			<div class="nav">
@@ -59,143 +62,147 @@
 		</header>
 
 		<main>
+			<div id="logIn" class="popUpFormContainer popUpForm">
+				<form id="logInForm" class="popUpSignInVisable log">
+					<div class="button-box">
+						<div class="toggle-button left"></div>
+						<button
+							type="button"
+							class="toggle-btn popUpFormBtn btn-styling"
+							data-modal="logIn"
+						>
+							Log in
+						</button>
+						<button
+							type="button"
+							class="toggle-btn popUpFormBtn btn-styling"
+							data-modal="createAccount"
+						>
+							Register
+						</button>
+						<a class="close-sign-in closePopUp">&times;</a>
+					</div>
 
-      <div id="logIn" class="popUpFormContainer popUpForm">
-        <form id="logInForm" class="popUpSignInVisable log">
-          <div class="button-box">
-            <div class="toggle-button left"></div>
-            <button
-              type="button"
-              class="toggle-btn popUpFormBtn btn-styling"
-              data-modal="logIn"
-            >
-              Log in
-            </button>
-            <button
-              type="button"
-              class="toggle-btn popUpFormBtn btn-styling"
-              data-modal="createAccount"
-            >
-              Register
-            </button>
-            <a class="close-sign-in closePopUp">&times;</a>
-          </div>
+					<input
+						id="logInUsername"
+						class="form-input"
+						type="text"
+						placeholder="Username"
+						required
+					/>
+					<input
+						id="logInPassword"
+						class="form-input"
+						type="text"
+						placeholder="Password"
+						required
+					/>
+					<button class="form-button">Log In</button>
+				</form>
+			</div>
 
-          <input
-            id="logInUsername"
-            class="form-input"
-            type="text"
-            placeholder="Username"
-            required
-          />
-          <input
-            id="logInPassword"
-            class="form-input"
-            type="text"
-            placeholder="Password"
-            required
-          />
-          <button class="form-button">Log In</button>
-        </form>
-      </div>
+			<div id="createAccount" class="popUpFormContainer popUpForm">
+				<form id="createAccountForm" class="popUpSignInVisable">
+					<div class="button-box">
+						<div class="toggle-button right"></div>
+						<button
+							type="button"
+							class="toggle-btn popUpFormBtn btn-styling"
+							data-modal="logIn"
+						>
+							Log in
+						</button>
+						<button
+							type="button"
+							class="toggle-btn popUpFormBtn btn-styling"
+							data-modal="createAccount"
+						>
+							Register
+						</button>
+						<a class="close-sign-in closePopUp">&times;</a>
+					</div>
 
-      <div id="createAccount" class="popUpFormContainer popUpForm">
-        <form id="createAccountForm" class="popUpSignInVisable">
-          <div class="button-box">
-            <div class="toggle-button right"></div>
-            <button
-              type="button"
-              class="toggle-btn popUpFormBtn btn-styling"
-              data-modal="logIn"
-            >
-              Log in
-            </button>
-            <button
-              type="button"
-              class="toggle-btn popUpFormBtn btn-styling"
-              data-modal="createAccount"
-            >
-              Register
-            </button>
-            <a class="close-sign-in closePopUp">&times;</a>
-          </div>
+					<input
+						id="createUsername"
+						class="form-input"
+						type="text"
+						placeholder="Username"
+						required
+					/>
+					<input
+						id="createPassword"
+						class="form-input"
+						type="text"
+						placeholder="Password"
+						required
+					/>
+					<button class="form-button">Register</button>
+				</form>
+			</div>
 
-          <input
-            id="createUsername"
-            class="form-input"
-            type="text"
-            placeholder="Username"
-            required
-          />
-          <input
-            id="createPassword"
-            class="form-input"
-            type="text"
-            placeholder="Password"
-            required
-          />
-          <button class="form-button">Register</button>
-        </form>
-      </div>
+			<div id="home-panel" class="tab-panel active">
+				<div class="contentContainer">
+					<div class="publishMessageContainer">
+						<button
+							id="publishMessagePopUp"
+							class="popUpFormBtn btn-styling"
+							data-modal="publishMessageForm"
+						>
+							Send a comment
+						</button>
+						<form id="publishMessageForm" class="popUpForm">
+							<div class="messageHeader">
+								<label for="message">Message</label>
+								<a class="closePopUp">&times;</a>
+							</div>
+							<div class="messageMainContent">
+								<textarea
+									id="message"
+									rows="1"
+									placeholder="Add a comment..."
+									required
+								></textarea>
+							</div>
+							<button class="form-button">Comment</button>
+							<h3></h3>
+						</form>
+					</div>
+					<div id="messageBoard"></div>
+				</div>
+			</div>
 
-      <div id="home-panel" class="tab-panel active">
-        <div class="contentContainer">
-          <div class="publishMessageContainer">
-            <button
-              id="publishMessagePopUp"
-              class="popUpFormBtn btn-styling"
-              data-modal="publishMessageForm"
-            >
-              Send a comment
-            </button>
-            <form id="publishMessageForm" class="popUpForm">
-              <div class="messageHeader">
-                <label for="message">Message</label>
-                <a class="closePopUp">&times;</a>
-              </div>
-              <div class="messageMainContent">
-                <textarea
-                  id="message"
-                  rows="1"
-                  placeholder="Add a comment..."
-                  required
-                ></textarea>
-              </div>
-              <button class="form-button">Comment</button>
-              <h3></h3>
-            </form>
-          </div>
-          <div id="messageBoard"></div>
-        </div>
-      </div>
+			<div id="about-panel" class="tab-panel"></div>
 
-      <div id="about-panel" class="tab-panel"></div>
+			<div id="contact-panel" class="tab-panel">
+				<section class="displayContact">
+					<h2>Contact us</h2>
+					<form>
+						<div>
+							<label for="name" class="displayBlock">Your name</label>
 
-      <div id="contact-panel" class="tab-panel">
-        <section class="displayContact">
-          <h2>Contact us</h2>
-          <form>
-            <div>
-              <label for="name" class="displayBlock">Your name</label>
-    
-              <input type="text" name="name" id="name" />
-            </div>
-            <div>
-              <label for="mail" class="displayBlock">Email</label>
-    
-              <input type="text" name="mail" id="mail" />
-            </div>
-    
-            <div>
-              <label for="message" class="displayBlock">Message</label>
-              <textarea name="message" id="message" cols="30" rows="6"></textarea>
-            </div>
-            <div>
-              <input type="submit" value="Send" />
-            </div>
-          </form>
-        </section>
-      </div>
+							<input type="text" name="name" id="name" />
+						</div>
+						<div>
+							<label for="mail" class="displayBlock">Email</label>
+
+							<input type="text" name="mail" id="mail" />
+						</div>
+
+						<div>
+							<label for="message" class="displayBlock">Message</label>
+							<textarea
+								name="message"
+								id="message"
+								cols="30"
+								rows="6"
+							></textarea>
+						</div>
+						<div>
+							<input type="submit" value="Send" class="btn-styling sendBtn" />
+						</div>
+					</form>
+				</section>
+			</div>
 		</main>
 
 		<div class="aboutStyle">
@@ -206,8 +213,13 @@
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
 					nobis dolorem corrupti iusto doloremque reprehenderit dolorum quos
-					debitis culpa tenetur, tempora voluptates inventore quia nam sequi ad
-					numquam ipsa ipsam!
+					debitis culpa tenetur, tempora voluptates nam sequi ad numquam ipsam!
+					<br /><br />
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+					blanditiis? Reiciendis nemo id quia rem. Alias eaque veniam sed
+					aliquid nesciunt dolore nostrum labore totam numquam, quidem fugiat
+					neque suscipit? Lorem ipsum dolor sit amet consectetur adipisicing
+					elit. Similique est ea unde, quod, odio vel eum.
 				</p>
 			</div>
 		</div>

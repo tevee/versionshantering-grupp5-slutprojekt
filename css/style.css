@@ -28,7 +28,7 @@ body {
 	flex-direction: column;
 }
 
-main{
+main {
 	flex-grow: 2;
 }
 .popUpFormContainer {
@@ -57,17 +57,14 @@ main{
 .btn-styling {
 	width: 100%;
 	line-height: 3;
-	border:none;
+	border: none;
 	border-radius: 4px;
 	font-size: 1.2rem;
 	font-weight: 600;
 	background-color: #aeccccff;
-	
-	
-	
 }
 
-.sign-in-btn{
+.sign-in-btn {
 	width: 110px;
 }
 .form-button-send {
@@ -198,7 +195,7 @@ label {
 }
 
 .inner-msg-container > p {
-  word-wrap: break-word;
+	word-wrap: break-word;
 }
 
 .message-footer {
@@ -260,7 +257,12 @@ section > h2 {
 div > label {
 	padding: 2%;
 }
+.sendBtn {
+	width: 30%;
+	line-height: 1;
+}
 
+/* About */
 .aboutStyle {
 	display: flex;
 
@@ -272,7 +274,8 @@ div > label {
 }
 img {
 	width: 50%;
-	padding: 2%;
+	padding-right: 3%;
+	padding-bottom: 3%;
 }
 div > h2 {
 	display: block;
@@ -291,10 +294,9 @@ div > h2 {
 	.message-box {
 		width: 400px;
 	}
-	.sign-in-btn{
+	.sign-in-btn {
 		width: 100px;
 	}
-	
 }
 
 @media screen and (min-width: 1080px) {
@@ -316,8 +318,6 @@ div > h2 {
 	#messageBoard {
 		margin-top: 0;
 	}
-
-	
 }
 @media screen and (max-width: 768px) {
 	.aboutStyle {
