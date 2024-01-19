@@ -1,24 +1,8 @@
-/* General CSS */
-:root {
-	--headerAndFooter-color: #557a87ff;
-	--background-color: #6c9999ff;
-	--message-color: #aeccccff;
-}
 * {
 	padding: 0px;
 	margin: 0px;
 	box-sizing: border-box;
 	font-family: "roboto";
-}
-
-.darkmode {
-	--primary-color: black;
-	--secondary-color: coral;
-	--text-color: white;
-}
-
-button:hover {
-	cursor: pointer;
 }
 
 body {
@@ -31,6 +15,11 @@ body {
 main {
 	flex-grow: 2;
 }
+
+button:hover {
+	cursor: pointer;
+}
+
 .popUpFormContainer {
 	display: none;
 	position: fixed;
@@ -93,7 +82,7 @@ label {
 	border: 1px solid black;
 	background-color: #aeccccff;
 	position: relative;
-	top: -42px;
+	top: -32px;
 }
 
 .messageMainContent {
@@ -269,7 +258,7 @@ div > label {
 	justify-content: center;
 	align-items: center;
 	box-sizing: border-box;
-	padding: 10%;
+	padding: 0rem;
 	width: 100%;
 }
 img {

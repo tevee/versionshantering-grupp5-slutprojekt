@@ -1,8 +1,10 @@
 import { getUserData, postUserData, deleteUserData, putData } from "./modules/api.js";
-import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displayMessage} from "./modules/display.js";
+import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displayMessage, displayDeleteBtnForUser} from "./modules/display.js";
 import { autoHeightOnTextArea } from "./modules/textarea.js";
 import { handleTabClick } from "./modules/navigation.js";
+import { handleDarkMode } from "./modules/thememode.js";
 
+const themeModeEl = document.querySelector('#themeMode')
 const navigationEl = document.querySelector('.off-screen-menu')
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const createAccountFormEl = document.querySelector('#createAccountForm')
@@ -14,11 +16,13 @@ const closePopUpModalBtns = [... document.querySelectorAll('.closePopUp')]
 const messageBoardEl = document.querySelector('#messageBoard')
 const messageTextareaEl = document.querySelector('#message')
 
-getUserData('messages', '')
-.then(messages => getAndDisplayExistingMessages(messages))
-.catch(error => console.log(error))
+handleDarkMode.set();
 
-displayLoggedInUser();
+const userMessages = await getUserData('messages', '')
+getAndDisplayExistingMessages(userMessages)
+displayLoggedInUser(userMessages)
+
+themeModeEl.addEventListener('change', handleDarkMode.change)
 
 navigationEl.addEventListener('click', event => {
     handleTabClick(event);
@@ -115,7 +119,8 @@ logInFormEl.addEventListener('submit', event => {
             if(userNameInputValue === users[user].username && passwordInputValue === users[user].password) {
                 document.cookie = `username=${userNameInputValue};`
                 console.log(userNameInputValue, 'logged in');
-                displayLoggedInUser();
+                displayLoggedInUser(userMessages);
+                displayDeleteBtnForUser();
                 break;
             }
         }

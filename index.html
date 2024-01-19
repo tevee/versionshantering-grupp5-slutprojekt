@@ -4,6 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/darkmode.css">
 		<link rel="stylesheet" href="./css/style.css" />
 		<link rel="stylesheet" href="./css/navbar.css" />
 		<link rel="stylesheet" href="./css/popUpSignIn.css" />
@@ -22,6 +24,11 @@
 	</head>
 	<body>
 		<header>
+      <div id="themeMode" class="slidebar-container">
+        <input type="checkbox" id="toggleMode" />
+        <label for="toggleMode" class="slidebar"></label>
+      </div>
+
 			<div class="user">
 				<button class="sign-in-btn popUpFormBtn btn-styling" data-modal="logIn">
 					Log in
@@ -171,7 +178,26 @@
 				</div>
 			</div>
 
-			<div id="about-panel" class="tab-panel"></div>
+			<div id="about-panel" class="tab-panel">
+        <div class="aboutStyle">
+          <img src="images/about.jpg" alt="people in nature" />
+          <div>
+            <h2>About us</h2>
+    
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+              nobis dolorem corrupti iusto doloremque reprehenderit dolorum quos
+              debitis culpa tenetur, tempora voluptates nam sequi ad numquam ipsam!
+              <br /><br />
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+              blanditiis? Reiciendis nemo id quia rem. Alias eaque veniam sed
+              aliquid nesciunt dolore nostrum labore totam numquam, quidem fugiat
+              neque suscipit? Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Similique est ea unde, quod, odio vel eum.
+            </p>
+          </div>
+        </div>
+      </div>
 
 			<div id="contact-panel" class="tab-panel">
 				<section class="displayContact">
@@ -204,25 +230,6 @@
 				</section>
 			</div>
 		</main>
-
-		<div class="aboutStyle">
-			<img src="images/about.jpg" alt="people in nature" />
-			<div>
-				<h2>About us</h2>
-
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-					nobis dolorem corrupti iusto doloremque reprehenderit dolorum quos
-					debitis culpa tenetur, tempora voluptates nam sequi ad numquam ipsam!
-					<br /><br />
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
-					blanditiis? Reiciendis nemo id quia rem. Alias eaque veniam sed
-					aliquid nesciunt dolore nostrum labore totam numquam, quidem fugiat
-					neque suscipit? Lorem ipsum dolor sit amet consectetur adipisicing
-					elit. Similique est ea unde, quod, odio vel eum.
-				</p>
-			</div>
-		</div>
 
 		<footer>
 			<a href="#"><i class="fa-brands fa-youtube icon"></i></a>
