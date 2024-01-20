@@ -11,14 +11,28 @@ export const handleDarkMode = {
 		const darkMode = document.querySelector("#toggleMode").checked;
 
 		if (darkMode) {
-			document.documentElement.style.setProperty("--headerAndFooter-color", "#2c2f33");
-			document.documentElement.style.setProperty("--background-color", "white");
-			document.documentElement.style.setProperty("--message-color", "white");
+			document.documentElement.style.setProperty("--headerAndFooter-color", "#000");
+			document.documentElement.style.setProperty("--background-color", "#121212");
+			document.documentElement.style.setProperty("--message-color", "#212121");
+			document.documentElement.style.setProperty("--message-hover-color", "#2a2a2a");
+			document.documentElement.style.setProperty("--dropdown-color", "#1a1a1a");
+			document.documentElement.style.setProperty("--text-color", "#fff");
+			document.documentElement.style.setProperty("--secondary-text-color", "#aaa");
+			document.documentElement.style.setProperty("--like-btn-color", "#212121");
+			document.documentElement.style.setProperty("--like-btn-border-color", "#fff");
+			document.documentElement.style.setProperty("--like-btn-hover-color", "#808080");
 			console.log("off");
 		} else {
-			document.documentElement.style.setProperty("--headerAndFooter-color", "white");
-			document.documentElement.style.setProperty("--background-color", "black");
-			document.documentElement.style.setProperty("--message-color", "black");
+            document.documentElement.style.setProperty("--headerAndFooter-color", "#fff");
+			document.documentElement.style.setProperty("--background-color", "#eef0f2");
+			document.documentElement.style.setProperty("--message-color", "#fff");
+			document.documentElement.style.setProperty("--message-hover-color", "#1a1a1a");
+			document.documentElement.style.setProperty("--dropdown-color", "rgba(0,0,0,0.05)");
+			document.documentElement.style.setProperty("--text-color", "#000");
+			document.documentElement.style.setProperty("--secondary-text-color", "#606060");
+			document.documentElement.style.setProperty("--like-btn-color", "#fff");
+			document.documentElement.style.setProperty("--like-btn-border-color", "#212121");
+			document.documentElement.style.setProperty("--like-btn-hover-color", "#d3d3d3");
 			console.log("on");
 		}
 	},

@@ -12,6 +12,10 @@ body {
 	flex-direction: column;
 }
 
+h1,h2,h3,h4,p,a,li,label {
+	color: var(--text-color)
+}
+
 main {
 	flex-grow: 2;
 }
@@ -41,6 +45,7 @@ button:hover {
 
 .publishMessageContainer {
 	margin: 0 4rem;
+	box-shadow: 1px 3px 8px rgba(49,49,49,.1);
 }
 
 .btn-styling {
@@ -50,7 +55,8 @@ button:hover {
 	border-radius: 4px;
 	font-size: 1.2rem;
 	font-weight: 600;
-	background-color: #aeccccff;
+	background-color: var(--message-color);
+	color: var(--text-color)
 }
 
 .sign-in-btn {
@@ -79,19 +85,21 @@ label {
 #publishMessageForm {
 	display: none;
 	flex-direction: column;
-	border: 1px solid black;
-	background-color: #aeccccff;
+	/* border: 1px solid black; */
+	border-radius: 4px;
+	background-color: var(--message-color);
 	position: relative;
 	top: -32px;
 }
 
 .messageMainContent {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #aaa;
 	margin: 1rem 0.5rem 0;
 }
 
 #publishMessageForm > .messageMainContent > textarea {
 	background-color: var(--message-color);
+	color: var(--text-color);
 	width: 100%;
 	resize: none;
 	outline: none;
@@ -122,12 +130,12 @@ label {
 	cursor: pointer;
 	font-size: 1.3rem;
 	font-weight: bold;
-	color: white;
+	color: var(--text-color);
 }
 
 .closePopUp:hover,
 .delete-message-btn:hover {
-	color: black;
+	color: #a7a7a7;
 }
 
 #messageBoard {
@@ -140,7 +148,8 @@ label {
 .message-box {
 	width: 100%;
 	background-color: var(--message-color);
-	border: 1px solid black;
+	box-shadow: 1px 3px 8px rgba(49,49,49,.1);
+	/* border: 1px solid black; */
 	border-radius: 6px;
 	margin-bottom: 1rem;
 	padding: 0.5rem;
@@ -177,6 +186,7 @@ label {
 .contentMessageHeader-left > p {
 	font-size: 0.8rem;
 	font-family: "Roboto", "Arial", sans-serif;
+	color: var(--secondary-text-color);
 }
 
 .inner-msg-container {
@@ -198,17 +208,30 @@ label {
 	margin: 0 0.5rem 0 0.3rem;
 	font-size: 0.8rem;
 	font-family: "Roboto", "Arial", sans-serif;
+	color: var(--secondary-text-color);
+}
+
+
+.like-btn {
+	width: 30px;
+	font-size: 1.6rem;
+	line-height: 2rem;
+	background-color: inherit;
+	border: none;
+}
+
+.like-btn:hover {
+	background-color: var(--like-btn-hover-color);
+	border-radius: 16px;
+}
+
+.like-icon {
+	-webkit-text-stroke: 1px var(--like-btn-border-color);
+    -webkit-text-fill-color: var(--like-btn-color);
 }
 
 .message-footer > .like-btn > .active {
-	color: #fff;
-}
-
-.like-btn {
-	font-size: 1.6rem;
-	line-height: 1.8rem;
-	background-color: inherit;
-	border: none;
+	-webkit-text-fill-color: var(--like-btn-border-color);
 }
 
 /* footer */
@@ -220,8 +243,9 @@ footer {
 	justify-content: space-around;
 	align-items: center;
 }
+
 .icon {
-	color: #fff;
+	color: var(--text-color);
 	font-size: 2.5rem;
 }
 
@@ -233,7 +257,6 @@ footer {
 	flex-direction: column;
 	box-sizing: border-box;
 	padding: 3%;
-	background-color: #6c9999ff;
 }
 .displayBlock {
 	display: block;
