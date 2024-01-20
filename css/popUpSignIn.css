@@ -63,11 +63,12 @@
     right: 85px;
     margin-top: 6px;
     font-size: 14px;
-  line-height: 3;
-  border: 1px solid black;
-  border-radius: 4px;
-  background-color: #aeccccff;
+    line-height: 3;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: #aeccccff;
 }
+
 .toggle-btn{
     margin-top: 5px;
     line-height: 0;
@@ -82,12 +83,12 @@
 }
 
 .toggle-button{
-position: absolute;
-width: 50%;
-height: 100%;
-background: linear-gradient(to right, purple, #1abc9c);
-border-radius: 30px;
-transition: .5s;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, purple, #1abc9c);
+    border-radius: 30px;
+    transition: .5s;
 }
 
 .toggle-button.left {

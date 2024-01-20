@@ -1,5 +1,12 @@
 :root {
-	--headerAndFooter-color: #557a87ff;
-	--background-color: #6c9999ff;
-	--message-color: #aeccccff;
+	--headerAndFooter-color: #fff;
+	--background-color: #eef0f2;
+	--message-color: #fff;
+    --message-hover-color: #1a1a1a;
+    --dropdown-color: rgba(0,0,0,0.05);
+    --text-color: #000;
+    --secondary-text-color: #606060;
+    --like-btn-color: #fff;
+    --like-btn-border-color: #212121;
+    --like-btn-hover-color: #d3d3d3;
 }

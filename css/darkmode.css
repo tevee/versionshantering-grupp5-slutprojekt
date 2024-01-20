@@ -1,8 +1,14 @@
 @media (prefers-color-scheme: dark) {
 	:root {
 		--headerAndFooter-color:#000;
-		/* --headerAndFooter-hover-color: #1ed760; */ /*optional*/
 		--background-color: #121212;
-		--message-color: #aeccccff;
+		--message-color: #212121;
+        --message-hover-color: #2a2a2a;
+        --dropdown-color: #1a1a1a;
+        --text-color: #fff;
+        --secondary-text-color: #aaa;
+		--like-btn-color: #212121;
+		--like-btn-border-color: #fff;
+		--like-btn-hover-color: #808080;
 	}
 }
