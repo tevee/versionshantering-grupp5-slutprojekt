@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="shortcut icon" href="#" type="image/x-icon" />
+		<link rel="shortcut icon" href="./images/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/darkmode.css">
 		<link rel="stylesheet" href="./css/style.css" />
@@ -24,21 +24,29 @@
 	</head>
 	<body>
 		<header>
-      <div id="themeMode" class="slidebar-container">
-        <input type="checkbox" id="toggleMode" />
-        <label for="toggleMode" class="slidebar"></label>
-      </div>
+			<div class="logo-container">
+				<a href="index.html">
+					<img id="logo" src="./images/logo.png" alt="logo">
+				</a>
+			
+			
+      			<div id="themeMode" class="slidebar-container">
+        			<input type="checkbox" id="toggleMode" />
+        			<label for="toggleMode" class="slidebar"></label>
+      			</div>
+		  	</div>
 
-			<div class="user">
-				<button class="sign-in-btn popUpFormBtn btn-styling" data-modal="logIn">
-					Log in
-					<i class="fa-solid fa-arrow-right-to-bracket fa-sm"></i>
-				</button>
+		  	<div class="nav-container">
+				<div class="user">
+					<button class="sign-in-btn popUpFormBtn btn-styling" data-modal="logIn">
+						Log in
+						<i class="fa-solid fa-arrow-right-to-bracket fa-sm"></i>
+					</button>
 
-				<div class="hide hover-container desktop-mode">
-					<i class="fa-regular fa-user fa-lg position-icon hide"></i>
-					<h3 id="loggedInUsername"></h3>
-					<a class="drop-down-arrow">&#x25BE;</a>
+					<div class="hide hover-container desktop-mode">
+						<i class="fa-regular fa-user fa-lg position-icon hide"></i>
+						<h3 id="loggedInUsername"></h3>
+						<a class="drop-down-arrow">&#x25BE;</a>
 					<div class="user-drop-down">
 						<button id="logOut" class="hide btn-styling btn-drop-down">
 							Log out
@@ -66,6 +74,7 @@
 					</div>
 				</nav>
 			</div>
+			</div>	
 		</header>
 
 		<main>
