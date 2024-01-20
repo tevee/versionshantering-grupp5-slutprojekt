@@ -42,18 +42,22 @@ input {
     height: 30px;
     position: relative;
     background: linear-gradient(#c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 999px;
     box-shadow: inset 5px 0px 15px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     transition: 0.5s;
 }
-  
+
 .slidebar:after {
     content: url(../images/sun.svg);
+    background-color: #A13D63;
     width: 30px;
     height: 30px;
     position: absolute;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
