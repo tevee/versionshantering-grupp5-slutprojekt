@@ -40,6 +40,7 @@ li{
     opacity: 0;
 }
 
+
 li:hover{
     color: #36454F;
     cursor: pointer;
@@ -121,7 +122,7 @@ input {
 button.btn-styling {
     line-height: 0;
     height: 30px;
-    padding: 1rem;
+    
 }
 
 .hover-container{
@@ -248,6 +249,7 @@ transform: translate(-50%, 0%) rotate(50deg);
 
     button.btn-styling {
         padding: 0;
+        
     }
 
     .nav {
@@ -329,6 +331,7 @@ transform: translate(-50%, 0%) rotate(50deg);
     .log-out-icon{
         opacity: 1;
         color: var(--text-color);
+
     }
 
     .logo-container{
