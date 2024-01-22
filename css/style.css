@@ -12,8 +12,15 @@ body {
 	flex-direction: column;
 }
 
-h1,h2,h3,h4,p,a,li,label {
-	color: var(--text-color)
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+li,
+label {
+	color: var(--text-color);
 }
 
 main {
@@ -45,7 +52,7 @@ button:hover {
 
 .publishMessageContainer {
 	margin: 0 4rem;
-	box-shadow: 1px 3px 8px rgba(49,49,49,.1);
+	box-shadow: 1px 3px 8px rgba(49, 49, 49, 0.1);
 }
 
 .btn-styling {
@@ -56,7 +63,7 @@ button:hover {
 	font-size: 1.2rem;
 	font-weight: 600;
 	background-color: var(--message-color);
-	color: var(--text-color)
+	color: var(--text-color);
 }
 
 .sign-in-btn {
@@ -148,7 +155,7 @@ label {
 .message-box {
 	width: 100%;
 	background-color: var(--message-color);
-	box-shadow: 1px 3px 8px rgba(49,49,49,.1);
+	box-shadow: 1px 3px 8px rgba(49, 49, 49, 0.1);
 	/* border: 1px solid black; */
 	border-radius: 6px;
 	margin-bottom: 1rem;
@@ -226,7 +233,7 @@ label {
 
 .like-icon {
 	-webkit-text-stroke: 1px var(--like-btn-border-color);
-    -webkit-text-fill-color: var(--like-btn-color);
+	-webkit-text-fill-color: var(--like-btn-color);
 }
 
 .message-footer > .like-btn > .active {
@@ -280,13 +287,12 @@ div > label {
 	justify-content: center;
 	align-items: center;
 	box-sizing: border-box;
-	padding: 0rem;
 	width: 100%;
+	padding: 2%;
 }
 img {
 	width: 50%;
-	padding-right: 3%;
-	padding-bottom: 3%;
+	padding: 3%;
 }
 div > h2 {
 	display: block;
