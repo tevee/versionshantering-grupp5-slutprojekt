@@ -3,7 +3,7 @@ import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displ
 import { autoHeightOnTextArea } from "./modules/textarea.js";
 import { handleTabClick } from "./modules/navigation.js";
 import { handleDarkMode } from "./modules/thememode.js";
-import { scrollToTop } from "./modules/tonGrupp3.js";//Ton group 3
+import { scrollToTop, submitSound } from "./modules/tonGrupp3.js";//Ton group 3
 
 const themeModeEl = document.querySelector('#themeMode')
 const navigationEl = document.querySelector('.off-screen-menu')
@@ -165,6 +165,8 @@ publishMessageFormEl.addEventListener('submit', event => {
     let uniqueKey;
 
     if(cookieValue !== undefined) {
+        submitSound.play();
+
         postUserData('messages', uniqueMessage)
         .then(key => {
             uniqueKey = key.name;
