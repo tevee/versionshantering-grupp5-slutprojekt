@@ -152,8 +152,7 @@ publishMessageFormEl.addEventListener('submit', event => {
             likesCount: 0
         }
     }
-    const displayGuestMessage = document.querySelector('#publishMessageForm > h3')
-    displayGuestMessage.innerText = ''
+  
     let uniqueKey;
 
     if(cookieValue !== undefined) {
@@ -165,8 +164,7 @@ publishMessageFormEl.addEventListener('submit', event => {
         .then(message => displayMessage(message, uniqueKey))
         .catch(error => console.log(error))
     }
-    else displayGuestMessage.innerText = 'Log in to publish a message'
-
+    else alert('Please, log in to send message');
     publishMessageFormEl.reset()
 })
 
