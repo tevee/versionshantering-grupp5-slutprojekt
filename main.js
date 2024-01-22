@@ -140,6 +140,12 @@ logOutBtn.addEventListener('click', event => {
 
 publishMessageFormEl.addEventListener('submit', event => {
     event.preventDefault()
+    let messageFontStyle = document.querySelectorAll(
+        'input[name="fontStyle"]:checked');
+      let emphasis = [""];
+      messageFontStyle.forEach((checkbox) => {
+        emphasis.push(checkbox.value);
+      });
     const messageElValue = document.querySelector('#message').value
     const cookieValue = document.cookie.split("username=").slice(1)[0]
     const messageDate = new Date()
@@ -147,6 +153,7 @@ publishMessageFormEl.addEventListener('submit', event => {
         message: messageElValue,
         username: cookieValue,
         date: messageDate,
+        fontStyle: emphasis,
         likes: {
             users: [''], //array must include empty string or else it becomes undefined
             likesCount: 0

@@ -2,7 +2,7 @@
 	padding: 0px;
 	margin: 0px;
 	box-sizing: border-box;
-	font-family: "roboto";
+	font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -196,7 +196,26 @@ label {
 .inner-msg-container > p {
 	word-wrap: break-word;
 }
-
+.italic {
+	font-style: italic;
+  }
+  .bold {
+	font-weight: bold;
+  }
+  #messageStyle {
+	padding: 0.5rem 0 0 0.5rem;
+  }
+  #messageStyle > input {
+	display: none;
+  }
+  #italic:checked + #italicLabel {
+	background-color: #a13d63;
+	border-radius: 2vh;
+  }
+  #bold:checked + #boldLabel {
+	background-color: #a13d63;
+	border-radius: 2vh;
+  }
 .message-footer {
 	display: flex;
 	flex-direction: row;
