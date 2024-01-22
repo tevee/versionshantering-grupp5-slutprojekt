@@ -11,9 +11,11 @@
 		<link rel="stylesheet" href="./css/popUpSignIn.css" />
 		<script type="module" src="./main.js"></script>
 
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
-			rel="stylesheet"
+		  href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,500&display=swap"
+		  rel="stylesheet"
 		/>
 
 		<script
@@ -180,6 +182,26 @@
 									required
 								></textarea>
 							</div>
+							<div id="messageStyle">
+								<input
+								  type="checkbox"
+								  name="fontStyle"
+								  id="italic"
+								  value="italic"
+								/>
+								<label for="italic" id="italicLabel"
+								  ><i class="fa-solid fa-italic"></i
+								></label>
+								<input
+								  type="checkbox"
+								  name="fontStyle"
+								  id="bold"
+								  value="bold"
+								/>
+								<label for="bold" id="boldLabel"
+								  ><i class="fa-solid fa-bold"></i
+								></label>
+							  </div>
 							<button class="form-button">Comment</button>
 						</form>
 					</div>
