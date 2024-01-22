@@ -10,14 +10,14 @@ header {
 }
 
 .logo-container{
-    width: 170px;
+    
  display: flex;
  justify-content: space-between;
     margin-left: 10px;
 }
 
 #logo{
-    
+    margin-right: 10px;
     margin-top: 5px;
     width: 60px;
     height: 60px;
@@ -332,7 +332,7 @@ transform: translate(-50%, 0%) rotate(50deg);
     }
 
     .logo-container{
-        width: 900px;
+        width: 100%;
     }
     #logo{
         margin-top: 0px;
