@@ -1,6 +1,6 @@
 # Gritsquare v2.0
 
-Versionshantering Slutprojekt Grupp 5
+Versionshantering Slutprojekt Grupp 5 (Thien 🚩, Andréa, Sofia, Melker)
 
 ## Features
 
