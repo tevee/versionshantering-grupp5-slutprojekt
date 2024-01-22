@@ -3,6 +3,7 @@ import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displ
 import { autoHeightOnTextArea } from "./modules/textarea.js";
 import { handleTabClick } from "./modules/navigation.js";
 import { handleDarkMode } from "./modules/thememode.js";
+import { scrollToTop } from "./modules/tonGrupp3.js";//Ton group 3
 
 const themeModeEl = document.querySelector('#themeMode')
 const navigationEl = document.querySelector('.off-screen-menu')
@@ -15,13 +16,14 @@ const popUpModalBtns =  [... document.querySelectorAll('.popUpFormBtn')]
 const closePopUpModalBtns = [... document.querySelectorAll('.closePopUp')]
 const messageBoardEl = document.querySelector('#messageBoard')
 const messageTextareaEl = document.querySelector('#message')
+const scrollToTopEl = document.querySelector('#scrollToTop');//Ton Group 3
 
 handleDarkMode.set();
 
 const userMessages = await getUserData('messages', '')
 getAndDisplayExistingMessages(userMessages)
 displayLoggedInUser(userMessages)
-
+scrollToTopEl.addEventListener('click',scrollToTop);//Ton Group 3
 themeModeEl.addEventListener('change', handleDarkMode.change)
 
 navigationEl.addEventListener('click', event => {
@@ -248,3 +250,4 @@ messageBoardEl.addEventListener('click', event => {
         })
     }
 })
+
