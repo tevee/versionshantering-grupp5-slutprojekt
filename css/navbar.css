@@ -10,9 +10,9 @@ header {
 }
 
 .logo-container{
-    
- display: flex;
- justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-left: 10px;
 }
 
