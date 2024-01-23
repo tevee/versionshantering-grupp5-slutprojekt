@@ -1,5 +1,6 @@
 import { createAndAppendElement } from "./createElement.js"
 import { timePostedDifference } from "./date.js"
+import { setContrast } from "./colorContrast.js";
 
 // Stoffe: Added module
 import { startTimeUpdate } from "./timeupdate.js";
@@ -74,8 +75,10 @@ export function getAndDisplayExistingMessages(messagesObj) {
         const messageHeaderLeft = createAndAppendElement('div', '', messageHeader)
         messageHeaderLeft.classList.add('contentMessageHeader-left')
 
-        createAndAppendElement('h3', uniqueMessage.username, messageHeaderLeft)
-        createAndAppendElement('p', timePostedDifference(uniqueMessage.date), messageHeaderLeft)
+        const usernameEl = createAndAppendElement('h3', uniqueMessage.username, messageHeaderLeft)
+        const timeDiffEl = createAndAppendElement('p', timePostedDifference(uniqueMessage.date), messageHeaderLeft)
+        usernameEl.style.color = setContrast(uniqueMessage.backgroundColor)
+        timeDiffEl.style.color = setContrast(uniqueMessage.backgroundColor)
 
         // Stoffe: Added line - set timestamp on attribute on message box
         div.setAttribute("timestamp", uniqueMessage.date);
@@ -87,7 +90,9 @@ export function getAndDisplayExistingMessages(messagesObj) {
 
         const messageContent = createAndAppendElement('div', '', div)
         messageContent.classList.add('inner-msg-container')
-        createAndAppendElement('p', uniqueMessage.message, messageContent)
+        const messageText = createAndAppendElement('p', uniqueMessage.message, messageContent)
+        messageText.style.color = setContrast(uniqueMessage.backgroundColor)
+
         const messa = uniqueMessage.fontStyle;
         if (messa.includes("italic") && messa.includes("bold")) {
             messageContent.classList.add("italic", "bold");
@@ -103,7 +108,9 @@ export function getAndDisplayExistingMessages(messagesObj) {
         messageFooter.classList.add('message-footer')
         likeBtn.classList.add('like-btn')
         likeIcon.className = 'fa-solid fa-thumbs-up like-icon'
+        likeIcon.style['-webkit-text-stroke'] = `1px ${setContrast(uniqueMessage.backgroundColor)}`
         likesEl.classList.add('amount-of-likes')
+        likesEl.style.color = setContrast(uniqueMessage.backgroundColor)
     }
 }
 
@@ -128,8 +135,10 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     const messageHeaderLeft = createAndAppendElement('div', '', messageHeader)
     messageHeaderLeft.classList.add('contentMessageHeader-left')
 
-    createAndAppendElement('h3', uniqueMessage.username, messageHeaderLeft)
-    createAndAppendElement('p', timePostedDifference(uniqueMessage.date), messageHeaderLeft)
+    const usernameEl = createAndAppendElement('h3', uniqueMessage.username, messageHeaderLeft)
+    const timeDiffEl = createAndAppendElement('p', timePostedDifference(uniqueMessage.date), messageHeaderLeft)
+    usernameEl.style.color = setContrast(uniqueMessage.backgroundColor)
+    timeDiffEl.style.color = setContrast(uniqueMessage.backgroundColor)
 
     // Stoffe: Added line - set timestamp on attribute on message box
     div.setAttribute("timestamp", uniqueMessage.date);
@@ -137,6 +146,7 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     if (uniqueMessage.username === cookieValue) {
         const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
         deleteMessageBtn.classList.add('delete-message-btn')
+        deleteMessageBtn.style.color = setContrast(uniqueMessage.backgroundColor)
     }
 
     const messageContent = createAndAppendElement('div', '', div)
@@ -151,7 +161,8 @@ export function displayMessage(uniqueMessage, uniqueKey) {
         messageContent.classList.add("bold");
     }
 
-    createAndAppendElement('p', uniqueMessage.message, messageContent)
+    const messageText = createAndAppendElement('p', uniqueMessage.message, messageContent)
+    messageText.style.color = setContrast(uniqueMessage.backgroundColor)
 
     const messageFooter = createAndAppendElement('div', '', div)
     const likeBtn = createAndAppendElement('button', '', messageFooter)
@@ -160,7 +171,9 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     messageFooter.classList.add('message-footer')
     likeBtn.classList.add('like-btn')
     likeIcon.className = 'fa-solid fa-thumbs-up like-icon'
+    likeIcon.style.color = setContrast(uniqueMessage.backgroundColor)
     likesEl.classList.add('amount-of-likes')
+    likesEl.style.color = setContrast(uniqueMessage.backgroundColor)
 }
 
 export function displayDeleteBtnForUser() {
