@@ -1,9 +1,9 @@
 #scrollToTop{
     position: fixed;
-    bottom: 10%;
-    right: 5%;
+    bottom: 11%;
+    right: 3%;
     text-decoration: none;
-    padding: 10px 12px;
+    padding: 10px 14px;
     border-radius: 50%;
     font-weight: 700;
     color: white;
