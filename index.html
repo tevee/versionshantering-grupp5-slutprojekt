@@ -9,11 +9,14 @@
 		<link rel="stylesheet" href="./css/style.css" />
 		<link rel="stylesheet" href="./css/navbar.css" />
 		<link rel="stylesheet" href="./css/popUpSignIn.css" />
+		<link rel="stylesheet" href="./css/ton_entities.css">
 		<script type="module" src="./main.js"></script>
 
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
-			rel="stylesheet"
+		  href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,500&display=swap"
+		  rel="stylesheet"
 		/>
 
 		<script
@@ -50,10 +53,11 @@
 					<div class="user-drop-down">
 						<button id="logOut" class="hide btn-styling btn-drop-down">
 							Log out
-						</button>
-						<i
+							<i
 							class="fa-solid fa-arrow-right-from-bracket fa-sm log-out-icon hide"
 						></i>
+						</button>
+						
 					</div>
 				</div>
 			</div>
@@ -179,8 +183,27 @@
 									required
 								></textarea>
 							</div>
+							<div id="messageStyle">
+								<input
+								  type="checkbox"
+								  name="fontStyle"
+								  id="italic"
+								  value="italic"
+								/>
+								<label for="italic" id="italicLabel"
+								  ><i class="fa-solid fa-italic"></i
+								></label>
+								<input
+								  type="checkbox"
+								  name="fontStyle"
+								  id="bold"
+								  value="bold"
+								/>
+								<label for="bold" id="boldLabel"
+								  ><i class="fa-solid fa-bold"></i
+								></label>
+							  </div>
 							<button class="form-button">Comment</button>
-							<h3></h3>
 						</form>
 					</div>
 					<div id="messageBoard"></div>
@@ -238,6 +261,9 @@
 					</form>
 				</section>
 			</div>
+
+			<!-- Ton group 3 -->
+			<a href="#" id="scrollToTop">&Lambda;</a>
 		</main>
 
 		<footer>

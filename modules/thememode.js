@@ -21,7 +21,6 @@ export const handleDarkMode = {
 			document.documentElement.style.setProperty("--like-btn-color", "#212121");
 			document.documentElement.style.setProperty("--like-btn-border-color", "#fff");
 			document.documentElement.style.setProperty("--like-btn-hover-color", "#808080");
-			console.log("off");
 		} else {
             document.documentElement.style.setProperty("--headerAndFooter-color", "#fff");
 			document.documentElement.style.setProperty("--background-color", "#eef0f2");
@@ -33,7 +32,6 @@ export const handleDarkMode = {
 			document.documentElement.style.setProperty("--like-btn-color", "#fff");
 			document.documentElement.style.setProperty("--like-btn-border-color", "#212121");
 			document.documentElement.style.setProperty("--like-btn-hover-color", "#d3d3d3");
-			console.log("on");
 		}
 	},
 };

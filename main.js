@@ -3,6 +3,7 @@ import { displayLoggedInUser, displayGuest, getAndDisplayExistingMessages, displ
 import { autoHeightOnTextArea } from "./modules/textarea.js";
 import { handleTabClick } from "./modules/navigation.js";
 import { handleDarkMode } from "./modules/thememode.js";
+import { scrollToTop, submitSound } from "./modules/tonGrupp3.js";//Ton group 3
 
 const themeModeEl = document.querySelector('#themeMode')
 const navigationEl = document.querySelector('.off-screen-menu')
@@ -15,13 +16,14 @@ const popUpModalBtns =  [... document.querySelectorAll('.popUpFormBtn')]
 const closePopUpModalBtns = [... document.querySelectorAll('.closePopUp')]
 const messageBoardEl = document.querySelector('#messageBoard')
 const messageTextareaEl = document.querySelector('#message')
+const scrollToTopEl = document.querySelector('#scrollToTop');//Ton Group 3
 
 handleDarkMode.set();
 
 const userMessages = await getUserData('messages', '')
 getAndDisplayExistingMessages(userMessages)
 displayLoggedInUser(userMessages)
-
+scrollToTopEl.addEventListener('click',scrollToTop);//Ton Group 3
 themeModeEl.addEventListener('change', handleDarkMode.change)
 
 navigationEl.addEventListener('click', event => {
@@ -140,6 +142,12 @@ logOutBtn.addEventListener('click', event => {
 
 publishMessageFormEl.addEventListener('submit', event => {
     event.preventDefault()
+    let messageFontStyle = document.querySelectorAll(
+        'input[name="fontStyle"]:checked');
+      let emphasis = [""];
+      messageFontStyle.forEach((checkbox) => {
+        emphasis.push(checkbox.value);
+      });
     const messageElValue = document.querySelector('#message').value
     const cookieValue = document.cookie.split("username=").slice(1)[0]
     const messageDate = new Date()
@@ -147,16 +155,18 @@ publishMessageFormEl.addEventListener('submit', event => {
         message: messageElValue,
         username: cookieValue,
         date: messageDate,
+        fontStyle: emphasis,
         likes: {
             users: [''], //array must include empty string or else it becomes undefined
             likesCount: 0
         }
     }
-    const displayGuestMessage = document.querySelector('#publishMessageForm > h3')
-    displayGuestMessage.innerText = ''
+  
     let uniqueKey;
 
     if(cookieValue !== undefined) {
+        submitSound.play();
+
         postUserData('messages', uniqueMessage)
         .then(key => {
             uniqueKey = key.name;
@@ -165,8 +175,7 @@ publishMessageFormEl.addEventListener('submit', event => {
         .then(message => displayMessage(message, uniqueKey))
         .catch(error => console.log(error))
     }
-    else displayGuestMessage.innerText = 'Log in to publish a message'
-
+    else alert('Please, log in to send message');
     publishMessageFormEl.reset()
 })
 
@@ -243,3 +252,4 @@ messageBoardEl.addEventListener('click', event => {
         })
     }
 })
+

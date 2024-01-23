@@ -78,7 +78,14 @@ export function getAndDisplayExistingMessages(messagesObj) {
         const messageContent = createAndAppendElement('div', '', div)
         messageContent.classList.add('inner-msg-container')
         createAndAppendElement('p', uniqueMessage.message, messageContent)
-
+        const messa = uniqueMessage.fontStyle;
+    if (messa.includes("italic") && messa.includes("bold")) {
+      messageContent.classList.add("italic", "bold");
+    } else if (messa.includes("italic")) {
+      messageContent.classList.add("italic");
+    } else if (messa.includes("bold")) {
+      messageContent.classList.add("bold");
+    }
         const messageFooter = createAndAppendElement('div', '', div)
         const likeBtn = createAndAppendElement('button', '', messageFooter)
         const likeIcon = createAndAppendElement('i', '', likeBtn)
@@ -120,6 +127,15 @@ export function displayMessage(uniqueMessage, uniqueKey) {
 
     const messageContent = createAndAppendElement('div', '', div)
     messageContent.classList.add('inner-msg-container')
+    const messa = uniqueMessage.fontStyle;
+
+    if (messa.includes("italic") && messa.includes("bold") && messa !== "") {
+      messageContent.classList.add("italic", "bold");
+    } else if (messa.includes("italic")) {
+      messageContent.classList.add("italic");
+    } else if (messa.includes("bold")) {
+      messageContent.classList.add("bold");
+    }
     createAndAppendElement('p', uniqueMessage.message, messageContent)
 
     const messageFooter = createAndAppendElement('div', '', div)
