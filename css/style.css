@@ -244,12 +244,12 @@ label {
 
 #colorPicker::-webkit-color-swatch {
 	border-radius: 4px;
-	border: none;
+	border: 1px solid black;
 }
 
 #colorPicker::-moz-color-swatch {
 	border-radius: 4px;
-	border: none;
+	border: 1px solid black;
 }
 
 .message-footer {
