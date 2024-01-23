@@ -16,6 +16,10 @@ h1,h2,h3,h4,p,a,li,label {
 	color: var(--text-color)
 }
 
+h3, label {
+	font-weight: 500;
+}
+
 main {
 	flex-grow: 2;
 }
@@ -45,7 +49,6 @@ button:hover {
 
 .publishMessageContainer {
 	margin: 0 4rem;
-	box-shadow: 1px 3px 8px rgba(49,49,49,.1);
 }
 
 .btn-styling {
@@ -54,7 +57,6 @@ button:hover {
 	border: none;
 	border-radius: 4px;
 	font-size: 1.2rem;
-	font-weight: 600;
 	background-color: var(--message-color);
 	color: var(--text-color)
 }
@@ -79,7 +81,6 @@ button:hover {
 label {
 	margin: auto;
 	font-size: 20px;
-	font-weight: bolder;
 }
 
 #publishMessageForm {
@@ -113,8 +114,7 @@ label {
 	align-self: center;
 }
 
-.messageHeader,
-.contentMessageHeader {
+.messageHeader, .contentMessageHeader {
 	display: flex;
 	justify-content: space-between;
 	padding: 0 0.5rem;
@@ -123,6 +123,7 @@ label {
 .messageHeader > label {
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 }
 
 .closePopUp,
@@ -196,27 +197,61 @@ label {
 .inner-msg-container > p {
 	word-wrap: break-word;
 }
+
 .italic {
 	font-style: italic;
-  }
-  .bold {
+}
+
+.bold {
 	font-weight: bold;
-  }
-  #messageStyle {
+}
+
+#messageStyle {
+	display: flex;
 	padding: 0.5rem 0 0 0.5rem;
-  }
-  #bold,#italic {
+}
+
+#messageStyle > label {
+	margin: 0;
+}
+
+#bold, #italic {
 	display: none;
-  }
-  #italic:checked + #italicLabel {
+}
+
+#italic:checked + #italicLabel {
 	background-color: #a13d63;
 	border-radius: 2vh;
-  }
-  #bold:checked + #boldLabel {
+}
+
+#bold:checked + #boldLabel {
 	background-color: #a13d63;
 	border-radius: 2vh;
-  }
- 
+}
+
+#colorPicker {
+	padding: 0;
+	margin: 0 2%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 30px;
+	height: 30px;
+	background-color: transparent;
+	border: none;
+	cursor:pointer;
+}
+
+#colorPicker::-webkit-color-swatch {
+	border-radius: 4px;
+	border: none;
+}
+
+#colorPicker::-moz-color-swatch {
+	border-radius: 4px;
+	border: none;
+}
+
 .message-footer {
 	display: flex;
 	flex-direction: row;

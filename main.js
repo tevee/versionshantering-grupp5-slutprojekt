@@ -141,15 +141,17 @@ logOutBtn.addEventListener('click', event => {
 
 publishMessageFormEl.addEventListener('submit', event => {
     event.preventDefault()
-    let messageFontStyle = document.querySelectorAll(
-        'input[name="fontStyle"]:checked');
-      let emphasis = [""];
-      messageFontStyle.forEach((checkbox) => {
+    let messageFontStyle = document.querySelectorAll('input[name="fontStyle"]:checked');
+    let emphasis = [""];
+    messageFontStyle.forEach((checkbox) => {
         emphasis.push(checkbox.value);
-      });
+    });
+
     const colorPicker = document.querySelector("#colorPicker");
-	const color = colorPicker.value;
-    console.log(color)
+    const messageBoxColor = getComputedStyle(document.documentElement).getPropertyValue('--message-color')
+    colorPicker.defaultValue = messageBoxColor
+    const currentColor = colorPicker.value
+
     const messageElValue = document.querySelector('#message').value
     const cookieValue = document.cookie.split("username=").slice(1)[0]
     const messageDate = new Date()
@@ -158,7 +160,7 @@ publishMessageFormEl.addEventListener('submit', event => {
         username: cookieValue,
         date: messageDate,
         fontStyle: emphasis,
-        backgroundColor: color,
+        backgroundColor: currentColor,
         likes: {
             users: [''], //array must include empty string or else it becomes undefined
             likesCount: 0
