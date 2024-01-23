@@ -4,19 +4,19 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="shortcut icon" href="./images/logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/darkmode.css">
+		<link rel="stylesheet" href="./css/variables.css" />
+		<link rel="stylesheet" href="./css/darkmode.css" />
 		<link rel="stylesheet" href="./css/style.css" />
 		<link rel="stylesheet" href="./css/navbar.css" />
 		<link rel="stylesheet" href="./css/popUpSignIn.css" />
-		<link rel="stylesheet" href="./css/ton_entities.css">
+		<link rel="stylesheet" href="./css/ton_entities.css" />
 		<script type="module" src="./main.js"></script>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-		  href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,500&display=swap"
-		  rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,500&display=swap"
+			rel="stylesheet"
 		/>
 
 		<script
@@ -29,19 +29,21 @@
 		<header>
 			<div class="logo-container">
 				<a href="index.html">
-					<img id="logo" src="./images/logo.png" alt="logo">
+					<img id="logo" src="./images/logo.png" alt="logo" />
 				</a>
-			
-			
-      			<div id="themeMode" class="slidebar-container">
-        			<input type="checkbox" id="toggleMode" />
-        			<label for="toggleMode" class="slidebar"></label>
-      			</div>
-		  	</div>
 
-		  	<div class="nav-container">
+				<div id="themeMode" class="slidebar-container">
+					<input type="checkbox" id="toggleMode" />
+					<label for="toggleMode" class="slidebar"></label>
+				</div>
+			</div>
+
+			<div class="nav-container">
 				<div class="user">
-					<button class="sign-in-btn popUpFormBtn btn-styling" data-modal="logIn">
+					<button
+						class="sign-in-btn popUpFormBtn btn-styling"
+						data-modal="logIn"
+					>
 						Log in
 						<i class="fa-solid fa-arrow-right-to-bracket fa-sm"></i>
 					</button>
@@ -50,35 +52,34 @@
 						<i class="fa-regular fa-user fa-lg position-icon hide"></i>
 						<h3 id="loggedInUsername"></h3>
 						<a class="drop-down-arrow">&#x25BE;</a>
-					<div class="user-drop-down">
-						<button id="logOut" class="hide btn-styling btn-drop-down">
-							Log out
-							<i
-							class="fa-solid fa-arrow-right-from-bracket fa-sm log-out-icon hide"
-						></i>
-						</button>
-						
+						<div class="user-drop-down">
+							<button id="logOut" class="hide btn-styling btn-drop-down">
+								Log out
+								<i
+									class="fa-solid fa-arrow-right-from-bracket fa-sm log-out-icon hide"
+								></i>
+							</button>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="nav">
-				<div class="off-screen-menu">
-					<ul>
-						<li id="home" class="nav-link active">Home</li>
-						<li id="about" class="nav-link">About</li>
-						<li id="contact" class="nav-link">Contact</li>
-					</ul>
-				</div>
-				<nav>
-					<div class="hamburger-menu">
-						<span></span>
-						<span></span>
-						<span></span>
+				<div class="nav">
+					<div class="off-screen-menu">
+						<ul>
+							<li id="home" class="nav-link active">Home</li>
+							<li id="about" class="nav-link">About</li>
+							<li id="contact" class="nav-link">Contact</li>
+						</ul>
 					</div>
-				</nav>
+					<nav>
+						<div class="hamburger-menu">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</nav>
+				</div>
 			</div>
-			</div>	
 		</header>
 
 		<main>
@@ -95,7 +96,7 @@
 						</button>
 						<button
 							type="button"
-							class="toggle-btn popUpFormBtn btn-styling"
+							class="toggle-btn popUpFormBtn btn-styling btn-grad"
 							data-modal="createAccount"
 						>
 							Register
@@ -165,7 +166,7 @@
 					<div class="publishMessageContainer">
 						<button
 							id="publishMessagePopUp"
-							class="popUpFormBtn btn-styling"
+							class="popUpFormBtn btn-styling btn-grad"
 							data-modal="publishMessageForm"
 						>
 							Send a comment
@@ -185,51 +186,55 @@
 							</div>
 							<div id="messageStyle">
 								<input
-								  type="checkbox"
-								  name="fontStyle"
-								  id="italic"
-								  value="italic"
+									type="checkbox"
+									name="fontStyle"
+									id="italic"
+									value="italic"
 								/>
 								<label for="italic" id="italicLabel"
-								  ><i class="fa-solid fa-italic"></i
+									><i class="fa-solid fa-italic"></i
 								></label>
 								<input
-								  type="checkbox"
-								  name="fontStyle"
-								  id="bold"
-								  value="bold"
+									type="checkbox"
+									name="fontStyle"
+									id="bold"
+									value="bold"
 								/>
 								<label for="bold" id="boldLabel"
-								  ><i class="fa-solid fa-bold"></i
+									><i class="fa-solid fa-bold"></i
 								></label>
-							  </div>
-							<button class="form-button">Comment</button>
+								<input type="color" id="textColorPicker" value="#000000" />
+							</div>
+							<button class="form-button btn-grad">Comment</button>
 						</form>
 					</div>
+					<input type="color" class="colorPicker" />
 					<div id="messageBoard"></div>
 				</div>
 			</div>
 
 			<div id="about-panel" class="tab-panel">
-        <div class="aboutStyle">
-          <img src="images/about.jpg" alt="people in nature" />
-          <div>
-            <h2>About us</h2>
-    
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-              nobis dolorem corrupti iusto doloremque reprehenderit dolorum quos
-              debitis culpa tenetur, tempora voluptates nam sequi ad numquam ipsam!
-              <br /><br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
-              blanditiis? Reiciendis nemo id quia rem. Alias eaque veniam sed
-              aliquid nesciunt dolore nostrum labore totam numquam, quidem fugiat
-              neque suscipit? Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Similique est ea unde, quod, odio vel eum.
-            </p>
-          </div>
-        </div>
-      </div>
+				<div class="aboutStyle">
+					<img src="images/about.jpg" alt="people in nature" />
+					<div>
+						<h2>About us</h2>
+
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+							nobis dolorem corrupti iusto doloremque reprehenderit dolorum quos
+							debitis culpa tenetur, tempora voluptates nam sequi ad numquam
+							ipsam!
+							<br /><br />
+							Lorem ipsum dolor sit amet consectetur adipisicing elit.
+							Consectetur, blanditiis? Reiciendis nemo id quia rem. Alias eaque
+							veniam sed aliquid nesciunt dolore nostrum labore totam numquam,
+							quidem fugiat neque suscipit? Lorem ipsum dolor sit amet
+							consectetur adipisicing elit. Similique est ea unde, quod, odio
+							vel eum.
+						</p>
+					</div>
+				</div>
+			</div>
 
 			<div id="contact-panel" class="tab-panel">
 				<section class="displayContact">
@@ -256,7 +261,11 @@
 							></textarea>
 						</div>
 						<div>
-							<input type="submit" value="Send" class="btn-styling sendBtn" />
+							<input
+								type="submit"
+								value="Send"
+								class="btn-styling sendBtn btn-grad"
+							/>
 						</div>
 					</form>
 				</section>

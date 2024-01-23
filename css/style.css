@@ -62,8 +62,19 @@ button:hover {
 	border-radius: 4px;
 	font-size: 1.2rem;
 	font-weight: 600;
-	background-color: var(--message-color);
-	color: var(--text-color);
+	background-image: linear-gradient(
+		to right,
+		#b4bec0 0%,
+		#d7dde8 51%,
+		#b4bec0 100%
+	);
+	/* background-color: var(--message-color);
+	color: var(--text-color); */
+}
+.btn-grad:hover {
+	background-position: right center;
+	color: #fff;
+	text-decoration: none;
 }
 
 .sign-in-btn {
@@ -205,24 +216,24 @@ label {
 }
 .italic {
 	font-style: italic;
-  }
-  .bold {
+}
+.bold {
 	font-weight: bold;
-  }
-  #messageStyle {
+}
+#messageStyle {
 	padding: 0.5rem 0 0 0.5rem;
-  }
-  #messageStyle > input {
+}
+#messageStyle > input {
 	display: none;
-  }
-  #italic:checked + #italicLabel {
+}
+#italic:checked + #italicLabel {
 	background-color: #a13d63;
 	border-radius: 2vh;
-  }
-  #bold:checked + #boldLabel {
+}
+#bold:checked + #boldLabel {
 	background-color: #a13d63;
 	border-radius: 2vh;
-  }
+}
 .message-footer {
 	display: flex;
 	flex-direction: row;
@@ -257,6 +268,11 @@ label {
 
 .message-footer > .like-btn > .active {
 	-webkit-text-fill-color: var(--like-btn-border-color);
+}
+.btn-grad:hover {
+	background-position: right center;
+	color: #fff;
+	text-decoration: none;
 }
 
 /* footer */
