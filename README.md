@@ -21,6 +21,8 @@
 
 To send a feature refer to [Contributing](https://github.com/tevee/versionshantering-grupp5-slutprojekt/blob/main/CONTRIBUTING.md).
 
+To see credits refer to [Credit - Received Features](https://github.com/tevee/versionshantering-grupp5-slutprojekt/wiki/Credit-%E2%80%90-Received-Features).
+
 For more detailed documentation of the project refer to [Wiki](https://github.com/tevee/versionshantering-grupp5-slutprojekt/wiki).
 
 ![mockup images](https://github.com/tevee/versionshantering-grupp5-slutprojekt/blob/main/images/mockup.jpg?raw=true)
