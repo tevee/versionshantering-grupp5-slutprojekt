@@ -7,7 +7,6 @@ export function setContrast(hexColor) {
     const rgb = hexToRgb(hexColor)
     const brightness = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) / 1000)
     const textColor = (brightness > 125) ? '#000000' : '#ffffff'
-    // const backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`
-    console.log(textColor);
+
     return textColor;
 }
