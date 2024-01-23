@@ -22,6 +22,7 @@ const userMessages = await getUserData('messages', '')
 getAndDisplayExistingMessages(userMessages)
 displayLoggedInUser(userMessages)
 handleDarkMode.set();
+
 scrollToTopEl.addEventListener('click',scrollToTop);//Ton Group 3
 themeModeEl.addEventListener('change', handleDarkMode.change)
 
