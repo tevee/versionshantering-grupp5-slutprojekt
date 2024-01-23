@@ -18,11 +18,10 @@ const messageBoardEl = document.querySelector('#messageBoard')
 const messageTextareaEl = document.querySelector('#message')
 const scrollToTopEl = document.querySelector('#scrollToTop');//Ton Group 3
 
-handleDarkMode.set();
-
 const userMessages = await getUserData('messages', '')
 getAndDisplayExistingMessages(userMessages)
 displayLoggedInUser(userMessages)
+handleDarkMode.set();
 scrollToTopEl.addEventListener('click',scrollToTop);//Ton Group 3
 themeModeEl.addEventListener('change', handleDarkMode.change)
 
@@ -148,6 +147,9 @@ publishMessageFormEl.addEventListener('submit', event => {
       messageFontStyle.forEach((checkbox) => {
         emphasis.push(checkbox.value);
       });
+    const colorPicker = document.querySelector("#colorPicker");
+	const color = colorPicker.value;
+    console.log(color)
     const messageElValue = document.querySelector('#message').value
     const cookieValue = document.cookie.split("username=").slice(1)[0]
     const messageDate = new Date()
@@ -156,6 +158,7 @@ publishMessageFormEl.addEventListener('submit', event => {
         username: cookieValue,
         date: messageDate,
         fontStyle: emphasis,
+        backgroundColor: color,
         likes: {
             users: [''], //array must include empty string or else it becomes undefined
             likesCount: 0

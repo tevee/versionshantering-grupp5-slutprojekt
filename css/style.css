@@ -205,7 +205,7 @@ label {
   #messageStyle {
 	padding: 0.5rem 0 0 0.5rem;
   }
-  #messageStyle > input {
+  #bold,#italic {
 	display: none;
   }
   #italic:checked + #italicLabel {
@@ -216,6 +216,7 @@ label {
 	background-color: #a13d63;
 	border-radius: 2vh;
   }
+ 
 .message-footer {
 	display: flex;
 	flex-direction: row;
