@@ -15,6 +15,7 @@
 - User can only remove its own sent message.
 - New message highlights with a black border that turns cyan 3 times.
 - User can add bold or italic while typing message.
+- User can pick a background color for the message.
 
 ## Project Related
 
