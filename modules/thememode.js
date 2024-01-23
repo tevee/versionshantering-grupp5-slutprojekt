@@ -1,6 +1,10 @@
 export const handleDarkMode = {
 	set: () => {
 		const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		let colorPickerValue = document.querySelector("#colorPicker").value
+		const messageBox = document.querySelector(".message-box")
+		colorPickerValue = getComputedStyle(messageBox).getPropertyValue("--message-color")
+		console.log(colorPickerValue)
 
 		if (darkMode) {
 			document.getElementById("toggleMode").checked = true;
@@ -9,8 +13,10 @@ export const handleDarkMode = {
 	change: (event) => {
 		event.preventDefault();
 		const darkMode = document.querySelector("#toggleMode").checked;
+		let colorPickerValue = document.querySelector("#colorPicker").value
 
 		if (darkMode) {
+			colorPickerValue = "#212121"
 			document.documentElement.style.setProperty("--headerAndFooter-color", "#000");
 			document.documentElement.style.setProperty("--background-color", "#121212");
 			document.documentElement.style.setProperty("--message-color", "#212121");
@@ -22,6 +28,7 @@ export const handleDarkMode = {
 			document.documentElement.style.setProperty("--like-btn-border-color", "#fff");
 			document.documentElement.style.setProperty("--like-btn-hover-color", "#808080");
 		} else {
+			colorPickerValue = "#fff"
             document.documentElement.style.setProperty("--headerAndFooter-color", "#fff");
 			document.documentElement.style.setProperty("--background-color", "#eef0f2");
 			document.documentElement.style.setProperty("--message-color", "#fff");

@@ -59,6 +59,7 @@ export function getAndDisplayExistingMessages(messagesObj) {
         const uniqueMessage = messagesObj[key]
         const div = createAndAppendElement('div', "", messageBoardEl)
         div.classList.add('message-box')
+        div.style.backgroundColor = uniqueMessage.backgroundColor
         div.id = key
 
         const messageHeader = createAndAppendElement('div', '', div)
@@ -104,6 +105,7 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     const div = createAndAppendElement('div', "", messageBoardEl)
     div.classList.add('message-box')
     div.classList.add('messageBorder');
+    div.style.backgroundColor = uniqueMessage.backgroundColor
     div.id = uniqueKey
 
     const elements = document.querySelectorAll('.messageBorder');
@@ -136,6 +138,7 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     } else if (messa.includes("bold")) {
       messageContent.classList.add("bold");
     }
+
     createAndAppendElement('p', uniqueMessage.message, messageContent)
 
     const messageFooter = createAndAppendElement('div', '', div)
