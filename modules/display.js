@@ -1,13 +1,19 @@
 import { createAndAppendElement } from "./createElement.js"
 import { timePostedDifference } from "./date.js"
 
+// Stoffe: Added module
+import { startTimeUpdate } from "./timeupdate.js";
+
+// Stoffe: Added this line. Update the "X hours/minutes/seconds ago" timestamp on all displayed messages every 10 seconds
+startTimeUpdate(10);
+
 function displayLikedIcons(messages) {
     const loggedInUser = document.cookie.split("username=").slice(1)[0]
 
-    for(const key in messages) {
+    for (const key in messages) {
         const uniqueMessage = messages[key]
-        for(const users of uniqueMessage.likes.users) {
-            if(loggedInUser === users) {
+        for (const users of uniqueMessage.likes.users) {
+            if (loggedInUser === users) {
                 const likeIcon = document.querySelector(`#${key} > .message-footer > .like-btn > i`)
                 likeIcon.classList.add('active')
             }
@@ -21,7 +27,7 @@ export function displayLoggedInUser(messages) {
     displayLoggedInUserEl.innerText = loggedInUser
     displayLikedIcons(messages)
 
-    if(document.cookie !== '') {
+    if (document.cookie !== '') {
         const signInBtn = document.querySelector('.sign-in-btn')
         const logOutButton = document.querySelector('#logOut')
         const logInContainerEl = document.querySelector('#logIn')
@@ -43,7 +49,7 @@ export function displayGuest() {
     const allLikeIcons = document.querySelectorAll('.like-icon')
     allLikeIcons.forEach(likeIcon => likeIcon.classList.remove('active'))
 
-    if(document.cookie !== '') {
+    if (document.cookie !== '') {
         displayLoggedInUserEl.innerText = ''
         signInBtn.classList.toggle('hide')
         logOutButton.classList.toggle('hide');
@@ -55,7 +61,7 @@ export function getAndDisplayExistingMessages(messagesObj) {
     const messageBoardEl = document.querySelector('#messageBoard')
     const cookieValue = document.cookie.split("username=").slice(1)[0]
 
-    for(const key in messagesObj) {
+    for (const key in messagesObj) {
         const uniqueMessage = messagesObj[key]
         const div = createAndAppendElement('div', "", messageBoardEl)
         div.classList.add('message-box')
@@ -71,7 +77,10 @@ export function getAndDisplayExistingMessages(messagesObj) {
         createAndAppendElement('h3', uniqueMessage.username, messageHeaderLeft)
         createAndAppendElement('p', timePostedDifference(uniqueMessage.date), messageHeaderLeft)
 
-        if(uniqueMessage.username === cookieValue) {
+        // Stoffe: Added line - set timestamp on attribute on message box
+        div.setAttribute("timestamp", uniqueMessage.date);
+
+        if (uniqueMessage.username === cookieValue) {
             const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
             deleteMessageBtn.classList.add('delete-message-btn')
         }
@@ -80,13 +89,13 @@ export function getAndDisplayExistingMessages(messagesObj) {
         messageContent.classList.add('inner-msg-container')
         createAndAppendElement('p', uniqueMessage.message, messageContent)
         const messa = uniqueMessage.fontStyle;
-    if (messa.includes("italic") && messa.includes("bold")) {
-      messageContent.classList.add("italic", "bold");
-    } else if (messa.includes("italic")) {
-      messageContent.classList.add("italic");
-    } else if (messa.includes("bold")) {
-      messageContent.classList.add("bold");
-    }
+        if (messa.includes("italic") && messa.includes("bold")) {
+            messageContent.classList.add("italic", "bold");
+        } else if (messa.includes("italic")) {
+            messageContent.classList.add("italic");
+        } else if (messa.includes("bold")) {
+            messageContent.classList.add("bold");
+        }
         const messageFooter = createAndAppendElement('div', '', div)
         const likeBtn = createAndAppendElement('button', '', messageFooter)
         const likeIcon = createAndAppendElement('i', '', likeBtn)
@@ -122,7 +131,10 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     createAndAppendElement('h3', uniqueMessage.username, messageHeaderLeft)
     createAndAppendElement('p', timePostedDifference(uniqueMessage.date), messageHeaderLeft)
 
-    if(uniqueMessage.username === cookieValue) {
+    // Stoffe: Added line - set timestamp on attribute on message box
+    div.setAttribute("timestamp", uniqueMessage.date);
+
+    if (uniqueMessage.username === cookieValue) {
         const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
         deleteMessageBtn.classList.add('delete-message-btn')
     }
@@ -132,11 +144,11 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     const messa = uniqueMessage.fontStyle;
 
     if (messa.includes("italic") && messa.includes("bold") && messa !== "") {
-      messageContent.classList.add("italic", "bold");
+        messageContent.classList.add("italic", "bold");
     } else if (messa.includes("italic")) {
-      messageContent.classList.add("italic");
+        messageContent.classList.add("italic");
     } else if (messa.includes("bold")) {
-      messageContent.classList.add("bold");
+        messageContent.classList.add("bold");
     }
 
     createAndAppendElement('p', uniqueMessage.message, messageContent)
@@ -157,7 +169,7 @@ export function displayDeleteBtnForUser() {
 
     allMessageHeader.forEach(messageHeader => {
         const username = messageHeader.querySelector('h3').innerText
-        if(username === cookieValue) {
+        if (username === cookieValue) {
             const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
             deleteMessageBtn.classList.add('delete-message-btn')
         }
