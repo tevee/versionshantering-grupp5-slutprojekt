@@ -103,6 +103,7 @@ createAccountFormEl.addEventListener('submit', event => {
             .then(result => console.log(result))
             .catch(error => console.log(error))
             console.log('Account created!');
+            alertWhenLogIn(`Welcome ${userNameInputValue}, you are now registered. Continue to log in page.`);
         }
     })
     .catch(error => console.log(error))
@@ -123,6 +124,7 @@ logInFormEl.addEventListener('submit', event => {
                 console.log(userNameInputValue, 'logged in');
                 displayLoggedInUser(userMessages);
                 displayDeleteBtnForUser();
+                alertWhenLogIn(`Welcome ${userNameInputValue}, you are now logged in`);
                 break;
             }
         }
