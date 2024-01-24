@@ -28,6 +28,9 @@ export function alertWhenLogIn(alertText) {
   alertPopUpButton.addEventListener("click", () => {
     alertPopUpDiv.remove();
   });
+  outerPopUpDiv.delay(3000).hide(1);
 
   return alertPopUpDiv;
+
+
 }
