@@ -27,12 +27,12 @@ For more detailed documentation of the project refer to [Wiki](https://github.co
 
 ### Color codes
 
-Darkmode:
+Darkmode: <br>
 Header/footer ![#000000](https://placehold.co/15x15/000000/000000.png) `#000000`<br>
 Background ![#121212](https://placehold.co/15x15/121212/121212.png) `#121212`<br>
 Message background default ![#212121](https://placehold.co/15x15/212121/212121.png) `#212121`
 
-Lightmode:
+Lightmode: <br>
 Header/footer ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff`<br>
 Background ![#eef0f2](https://placehold.co/15x15/eef0f2/eef0f2.png) `#eef0f2` <br>
 Message background default ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff`
