@@ -1,129 +1,148 @@
-.popUpSignInVisable{
-    background-color: #aeccccff;
-    height: 400px;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 20px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.popUpSignInVisable {
+  background-color: #aeccccff;
+  height: 400px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.alertPopUp {
+  background-color: #aeccccff;
+  height: 210px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 100;
+}
+
+.alertBtn {
+  background-color: transparent;
+  border: none;
 }
 
 .close-sign-in {
-    position:relative;
-    top:-55px;
-    right: -57px;
-    cursor: pointer;
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-  }
-  
-  .close-sign-in:hover {
-    color: black;
-  }
-
-.form-input{
-    width: 180px;
-    border:none;
-    border-bottom: 1px solid black;
-    background-color: #aeccccff;
-    font-size: 1rem;
+  position: relative;
+  top: -55px;
+  right: -57px;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
 }
 
-.button-box{
-    position: relative;
-    width: 220px;
-    box-shadow: 0px 10px 20px 0px #6c9999ff;
-    border-radius: 30px;
-    display:flex;
-    justify-content:space-between;
-    margin: 3rem 0 2rem;
-    
-}
-.form-button{
-    margin-top: 30px;
-    width:150px;
-    padding: 10px 30px;
-    background: linear-gradient(to right, purple, #1abc9c);
-    border: 0;
-    border-radius: 30px;
-    color: white;
-    font-weight: bolder;
-    font-size: 14px;
-    
+.close-sign-in:hover {
+  color: black;
 }
 
-.log-out-btn{
-    position: absolute;
-    width: 70px;
-    right: 85px;
-    margin-top: 6px;
-    font-size: 14px;
-    line-height: 3;
-    border: 1px solid black;
-    border-radius: 4px;
-    background-color: #aeccccff;
+.form-input {
+  width: 180px;
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: #aeccccff;
+  font-size: 1rem;
 }
 
-.toggle-btn{
-    margin-top: 5px;
-    line-height: 0;
-    cursor: pointer;
-    background: transparent;
-    border:0;
-    outline: none;
-    position: relative;
-    color:white;
-    font-size: 14px;
-    font-weight: bolder;
+.button-box {
+  position: relative;
+  width: 220px;
+  box-shadow: 0px 10px 20px 0px #6c9999ff;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0 2rem;
+}
+.form-button {
+  margin-top: 30px;
+  width: 150px;
+  padding: 10px 30px;
+  background: linear-gradient(to right, purple, #1abc9c);
+  border: 0;
+  border-radius: 30px;
+  color: white;
+  font-weight: bolder;
+  font-size: 14px;
 }
 
-.toggle-button{
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, purple, #1abc9c);
-    border-radius: 30px;
-    transition: .5s;
+.log-out-btn {
+  position: absolute;
+  width: 70px;
+  right: 85px;
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 3;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: #aeccccff;
+}
+
+.toggle-btn {
+  margin-top: 5px;
+  line-height: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+  color: white;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.toggle-button {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, purple, #1abc9c);
+  border-radius: 30px;
+  transition: 0.5s;
 }
 
 .toggle-button.left {
-    left: 0;
+  left: 0;
 }
 
 .toggle-button.right {
-    left: 50%;
+  left: 50%;
 }
 
-@media (min-width: 768px){
-    .popUpSignInVisable{
-        height: 350px;
-        width: 400px;
-    }
+@media (min-width: 768px) {
+  .popUpSignInVisable {
+    height: 350px;
+    width: 400px;
+  }
 
-    .form-button{
-        margin-top: 60px;
-    }
-    .close-sign-in {
-        
-        top:-55px;
-        right: -180px;
-        
-      }
+  .form-button {
+    margin-top: 60px;
+  }
+  .close-sign-in {
+    top: -55px;
+    right: -180px;
+  }
 }
 
 @media screen and (min-width: 1080px) {
-    .popUpSignInVisable{
-        height: 600px;
-        width: 600px;
-    }
+  .popUpSignInVisable {
+    height: 600px;
+    width: 600px;
+  }
 
-    .button-box {
-        margin-bottom: 6rem;
-    }
+  .button-box {
+    margin-bottom: 6rem;
+  }
 }
