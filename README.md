@@ -33,7 +33,7 @@ Background ![#121212](https://placehold.co/15x15/121212/121212.png) `#121212`<br
 Message background default ![#212121](https://placehold.co/15x15/212121/212121.png) `#212121`
 
 Lightmode: <br>
-Header/footer ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff`<br>
+-![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` Header/footer <br>
 Background ![#eef0f2](https://placehold.co/15x15/eef0f2/eef0f2.png) `#eef0f2` <br>
 Message background default ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff`
 
