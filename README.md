@@ -28,7 +28,7 @@ For more detailed documentation of the project refer to [Wiki](https://github.co
 ### Color codes
 
 Darkmode: <br>
--![#000000](https://placehold.co/15x15/000000/000000.png) `#000000` Header/footer <br>
+- -![#000000](https://placehold.co/15x15/000000/000000.png) `#000000` Header/footer <br>
 
 -![#121212](https://placehold.co/15x15/121212/121212.png) `#121212` Background <br>
 
