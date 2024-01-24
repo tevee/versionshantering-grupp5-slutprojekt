@@ -24,13 +24,8 @@ export function alertWhenLogIn(alertText) {
   document.body.append(outerPopUpDiv);
   outerPopUpDiv.append(alertPopUpDiv);
   alertPopUpDiv.append(alertPopUpTitle, alertPopUpText, alertPopUpButton);
-
-  alertPopUpButton.addEventListener("click", () => {
-    alertPopUpDiv.remove();
-  });
-  outerPopUpDiv.delay(3000).hide(1);
+  
+  setTimeout(() => { outerPopUpDiv.remove() }, 3000)
 
   return alertPopUpDiv;
-
-
 }
