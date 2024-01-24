@@ -86,6 +86,7 @@ export function getAndDisplayExistingMessages(messagesObj) {
         if (uniqueMessage.username === cookieValue) {
             const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
             deleteMessageBtn.classList.add('delete-message-btn')
+            deleteMessageBtn.style.color = setContrast(uniqueMessage.backgroundColor)
         }
 
         const messageContent = createAndAppendElement('div', '', div)
@@ -182,6 +183,7 @@ export function displayDeleteBtnForUser() {
 
     allMessageHeader.forEach(messageHeader => {
         const username = messageHeader.querySelector('h3').innerText
+        
         if (username === cookieValue) {
             const deleteMessageBtn = createAndAppendElement('a', '×', messageHeader)
             deleteMessageBtn.classList.add('delete-message-btn')
