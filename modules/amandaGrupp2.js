@@ -3,22 +3,26 @@
 //register that says "welcome (your username)"
 
 export function alertWhenLogIn(alertText) {
-  const loggedInUser = document.cookie.split("username=").slice(1)[0];
-
+  const outerPopUpDiv = document.createElement('div');
+  outerPopUpDiv.className = 'popUpFormContainer popUpForm';
+  outerPopUpDiv.style.display = 'flex';
+  outerPopUpDiv.id = 'alertPopUpContainer'
   const alertPopUpDiv = document.createElement("div");
-  alertPopUpDiv.className = "alertPopUp popUpForm";
+  alertPopUpDiv.className = "alertPopUp";
 
   const alertPopUpTitle = document.createElement("h3");
   const alertPopUpText = document.createElement("p");
   const alertPopUpButton = document.createElement("button");
-  alertPopUpButton.classList.add("alertBtn");
+  alertPopUpButton.className = "alertBtn popUpFormBtn"
+  alertPopUpButton.setAttribute('data-modal', 'alertPopUpContainer')
 
   alertPopUpTitle.innerText = "Welcome!!";
   alertPopUpText.innerText = alertText;
   alertPopUpButton.innerText = "X";
   alertPopUpButton.classList.add("closePopUp");
 
-  document.body.append(alertPopUpDiv);
+  document.body.append(outerPopUpDiv);
+  outerPopUpDiv.append(alertPopUpDiv);
   alertPopUpDiv.append(alertPopUpTitle, alertPopUpText, alertPopUpButton);
 
   alertPopUpButton.addEventListener("click", () => {

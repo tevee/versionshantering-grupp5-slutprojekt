@@ -4,6 +4,7 @@ import { autoHeightOnTextArea } from "./modules/textarea.js";
 import { handleTabClick } from "./modules/navigation.js";
 import { handleDarkMode } from "./modules/thememode.js";
 import { scrollToTop, submitSound } from "./modules/tonGrupp3.js";//Ton group 3
+import { alertWhenLogIn } from "./modules/amandaGrupp2.js";
 
 const themeModeEl = document.querySelector('#themeMode')
 const navigationEl = document.querySelector('.off-screen-menu')
@@ -64,6 +65,7 @@ closePopUpModalBtns.forEach(button => {
 window.addEventListener('click', event => {
     if(event.target.className === 'popUpFormContainer popUpForm') {
         event.target.style.display = 'none'
+        if(event.target.id === 'alertPopUpContainer') event.target.remove();
     }
 })
 
@@ -100,10 +102,10 @@ createAccountFormEl.addEventListener('submit', event => {
 
         if(createUser.username !== '' && createUser.password !== '') {
             postUserData('users', createUser)
-            .then(result => console.log(result))
+            .then(result => {
+                alertWhenLogIn(`Welcome ${userNameInputValue}, you are now registered. Continue to log in page.`);
+            })
             .catch(error => console.log(error))
-            console.log('Account created!');
-            alertWhenLogIn(`Welcome ${userNameInputValue}, you are now registered. Continue to log in page.`);
         }
     })
     .catch(error => console.log(error))
@@ -121,7 +123,6 @@ logInFormEl.addEventListener('submit', event => {
         for(const user in users) {
             if(userNameInputValue === users[user].username && passwordInputValue === users[user].password) {
                 document.cookie = `username=${userNameInputValue};`
-                console.log(userNameInputValue, 'logged in');
                 displayLoggedInUser(userMessages);
                 displayDeleteBtnForUser();
                 alertWhenLogIn(`Welcome ${userNameInputValue}, you are now logged in`);
