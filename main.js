@@ -5,6 +5,7 @@ import { handleTabClick } from "./modules/navigation.js";
 import { handleDarkMode } from "./modules/thememode.js";
 import { scrollToTop, submitSound } from "./modules/tonGrupp3.js";//Ton group 3
 import { alertWhenLogIn } from "./modules/amandaGrupp2.js";
+import { setupMuteButton } from "./modules/annelie.js";
 
 const themeModeEl = document.querySelector('#themeMode')
 const navigationEl = document.querySelector('.off-screen-menu')
@@ -174,7 +175,8 @@ publishMessageFormEl.addEventListener('submit', event => {
     let uniqueKey;
 
     if(cookieValue !== undefined) {
-        submitSound.play();
+
+        setupMuteButton(submitSound);
 
         postUserData('messages', uniqueMessage)
         .then(key => {
