@@ -5,7 +5,7 @@ import { handleTabClick } from "./modules/navigation.js";
 import { handleDarkMode } from "./modules/thememode.js";
 import { scrollToTop, submitSound } from "./modules/tonGrupp3.js";//Ton group 3
 import { alertWhenLogIn } from "./modules/amandaGrupp2.js";
-import { setupMuteButton } from "./modules/annelie.js";
+import { setupMuteButton, playMessageSound } from "./modules/annelie.js"; // Anne-lie grupp 2
 
 const themeModeEl = document.querySelector('#themeMode')
 const navigationEl = document.querySelector('.off-screen-menu')
@@ -24,6 +24,7 @@ const userMessages = await getUserData('messages', '')
 getAndDisplayExistingMessages(userMessages)
 displayLoggedInUser(userMessages)
 handleDarkMode.set();
+setupMuteButton();
 
 scrollToTopEl.addEventListener('click',scrollToTop);//Ton Group 3
 themeModeEl.addEventListener('change', handleDarkMode.change)
@@ -175,8 +176,7 @@ publishMessageFormEl.addEventListener('submit', event => {
     let uniqueKey;
 
     if(cookieValue !== undefined) {
-
-        setupMuteButton(submitSound);
+        playMessageSound(submitSound) // Anne-lie grupp 2
 
         postUserData('messages', uniqueMessage)
         .then(key => {
