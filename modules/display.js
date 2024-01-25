@@ -5,8 +5,13 @@ import { setContrast } from "./colorContrast.js";
 // Stoffe: Added module
 import { startTimeUpdate } from "./timeupdate.js";
 
+// Amanda: Added function from module
+import { createLinkInMessage } from "./amandaGrupp2.js";
+
 // Stoffe: Added this line. Update the "X hours/minutes/seconds ago" timestamp on all displayed messages every 10 seconds
 startTimeUpdate(10);
+
+
 
 function displayLikedIcons(messages) {
     const loggedInUser = document.cookie.split("username=").slice(1)[0]
@@ -60,7 +65,7 @@ export function displayGuest() {
 
 export function getAndDisplayExistingMessages(messagesObj) {
     const messageBoardEl = document.querySelector('#messageBoard')
-    const cookieValue = document.cookie.split("username=").slice(1)[0]
+    const cookieValue = document.cookie.split("username=").slice(1)[0];
 
     for (const key in messagesObj) {
         const uniqueMessage = messagesObj[key]
@@ -93,6 +98,8 @@ export function getAndDisplayExistingMessages(messagesObj) {
         messageContent.classList.add('inner-msg-container')
         const messageText = createAndAppendElement('p', uniqueMessage.message, messageContent)
         messageText.style.color = setContrast(uniqueMessage.backgroundColor)
+  
+        createLinkInMessage(messageText, messageContent)
 
         const messa = uniqueMessage.fontStyle;
         if (messa.includes("italic") && messa.includes("bold")) {
@@ -163,6 +170,7 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     }
 
     const messageText = createAndAppendElement('p', uniqueMessage.message, messageContent)
+    createLinkInMessage(messageText, messageContent)
     messageText.style.color = setContrast(uniqueMessage.backgroundColor)
 
     const messageFooter = createAndAppendElement('div', '', div)
