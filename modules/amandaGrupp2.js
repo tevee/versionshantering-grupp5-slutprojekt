@@ -31,7 +31,7 @@ export function alertWhenLogIn(alertText) {
 }
 
 //Amanda Grupp 2
-//Function that makes anything written with "www." in a message to a link
+//Function that converts a string with url into a link
 
   export function convertStringToLink(messageText, color) {
 
