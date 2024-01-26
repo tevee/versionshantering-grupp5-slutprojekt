@@ -96,9 +96,9 @@ export function getAndDisplayExistingMessages(messagesObj) {
 
         const messageContent = createAndAppendElement('div', '', div)
         messageContent.classList.add('inner-msg-container')
+
         const messageText = createAndAppendElement('p', uniqueMessage.message, messageContent)
         messageText.style.color = setContrast(uniqueMessage.backgroundColor)
-  
         messageText.innerHTML = convertStringToLink(messageText.innerText, setContrast(uniqueMessage.backgroundColor))
 
         const messa = uniqueMessage.fontStyle;
@@ -170,9 +170,7 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     }
 
     const messageText = createAndAppendElement('p', uniqueMessage.message, messageContent)
-
     messageText.style.color = setContrast(uniqueMessage.backgroundColor)
-
     messageText.innerHTML = convertStringToLink(messageText.innerText, setContrast(uniqueMessage.backgroundColor))
 
     const messageFooter = createAndAppendElement('div', '', div)
