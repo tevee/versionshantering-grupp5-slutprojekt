@@ -191,7 +191,6 @@ publishMessageFormEl.addEventListener('submit', event => {
 })
 
 messageBoardEl.addEventListener('click', event => {
-    event.preventDefault()
 
     if(event.target.getAttribute('class') === 'delete-message-btn') {
         const parentContainer = event.target.closest('.message-box');
