@@ -1,4 +1,5 @@
-# Versionshantering Slutprojekt Grupp 5
+# Gritsquare
+**Versionshantering Slutprojekt Grupp 5**
 
 - Thien 🚩
 - Andréa
