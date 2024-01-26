@@ -6,7 +6,7 @@ import { setContrast } from "./colorContrast.js";
 import { startTimeUpdate } from "./timeupdate.js";
 
 // Amanda: Added function from module
-import { createLinkInMessage } from "./amandaGrupp2.js";
+import { convertStringToLink } from "./amandaGrupp2.js";
 
 // Stoffe: Added this line. Update the "X hours/minutes/seconds ago" timestamp on all displayed messages every 10 seconds
 startTimeUpdate(10);
@@ -99,7 +99,7 @@ export function getAndDisplayExistingMessages(messagesObj) {
         const messageText = createAndAppendElement('p', uniqueMessage.message, messageContent)
         messageText.style.color = setContrast(uniqueMessage.backgroundColor)
   
-        createLinkInMessage(messageText, messageContent)
+        messageText.innerHTML = convertStringToLink(messageText.innerText, setContrast(uniqueMessage.backgroundColor))
 
         const messa = uniqueMessage.fontStyle;
         if (messa.includes("italic") && messa.includes("bold")) {
@@ -170,8 +170,10 @@ export function displayMessage(uniqueMessage, uniqueKey) {
     }
 
     const messageText = createAndAppendElement('p', uniqueMessage.message, messageContent)
-    createLinkInMessage(messageText, messageContent)
+
     messageText.style.color = setContrast(uniqueMessage.backgroundColor)
+
+    messageText.innerHTML = convertStringToLink(messageText.innerText, setContrast(uniqueMessage.backgroundColor))
 
     const messageFooter = createAndAppendElement('div', '', div)
     const likeBtn = createAndAppendElement('button', '', messageFooter)
